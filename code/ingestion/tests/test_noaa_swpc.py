@@ -217,3 +217,19 @@ def test_hourly_ace_gap_logged_once(tmp_path):
     assert len(no_data) == 1
     df = table(tmp_path, "noaa_swpc_ace_swepam_1h")
     assert set(df.unit[df.quantity == "dens"]) == {"cm^-3"}
+
+
+def test_long_history_files_are_fetched_at_most_every_6_hours(tmp_path):
+    server = FakeServer()
+    products = (by_name("rtsw_wind"), by_name("kp_1m"))
+    run(tmp_path, server, products)
+    server.calls.clear()
+    run(tmp_path, server, products)
+    assert server.calls == ["planetary_k_index_1m.json"]  # rtsw skipped, kp_1m fetched every run
+    state_path = tmp_path / "raw" / "noaa_swpc" / "state.json"
+    state = json.loads(state_path.read_text())
+    state["fetched_at:rtsw_wind"] = "2026-01-01T00:00:00+00:00"  # pretend the last fetch was long ago
+    state_path.write_text(json.dumps(state))
+    server.calls.clear()
+    run(tmp_path, server, products)
+    assert "rtsw_wind_1m.json" in server.calls

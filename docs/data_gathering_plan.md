@@ -87,9 +87,9 @@ Rows and coverage are from the first run.
 | File (services.swpc.noaa.gov) | Content | Keeps | Result 2026-10-11 |
 |---|---|---|---|
 | `/products/solar-wind/plasma-*.json`, `mag-*.json` | Solar wind, 1 min | n/a | **404, directory removed.** Replaced by the propagated files below |
-| `/products/geospace/propagated-solar-wind-1-hour.json`, `propagated-solar-wind.json` | Plasma + field at L1, 1 min, plus estimated arrival time at Earth | 1 h / 7 days | Found in the directory listing; added to the collector, first run pending |
+| `/products/geospace/propagated-solar-wind-1-hour.json`, `propagated-solar-wind.json` | Plasma + field at L1, 1 min, plus estimated arrival time at Earth | 1 h / 7 days | OK: 110,220 rows (7 days, 11 quantities) |
 | `/json/rtsw/rtsw_wind_1m.json`, `rtsw_mag_1m.json` | RTSW 1 min per spacecraft (SOLAR1 active; ACE, IMAP) with quality flags | ~24 h | OK: 105,212 and 74,860 rows. `-9999` is a fill value. One HTTP 502 on a manual retry |
-| `/json/ace/swepam/ace_swepam_1h.json`, `/json/ace/mag/ace_mag_1h.json` | ACE plasma and field, hourly | ~30 days, hours missing | Found in the listing; added to the collector, first run pending |
+| `/json/ace/swepam/ace_swepam_1h.json`, `/json/ace/mag/ace_mag_1h.json` | ACE plasma and field, hourly | ~30 days, hours missing | OK: 2,492 and 8,593 rows; hourly gaps logged |
 | `/json/planetary_k_index_1m.json` | Estimated Kp, 1 min | ~6 h | OK: 723 rows |
 | `/products/noaa-planetary-k-index.json` | Kp every 3 h | 7 days | OK: 183 rows. Now a list of objects (no header row); Kp as decimal thirds |
 | `/json/goes/primary/integral-protons-1-day.json`, `-7-day.json` | GOES integral protons, 5 min, per energy channel | 1 / 7 days | OK: 16,080 rows; source gap 2026-10-06 17:25–17:45 |
@@ -128,7 +128,7 @@ Archiving rules:
 Order: first what cannot be recovered later (NOAA live), then what the test event set needs.
 
 Now
-- [ ] Start the NOAA SWPC collector; check every URL on first fetch
+- [x] Start the NOAA SWPC collector; check every URL on first fetch (scheduled every 30 min since 2026-10-11)
 - [ ] Create NASA Earthdata (CDDIS) and Space-Track accounts
 - [ ] E-mail CCMC about using DONKI for validation
 - [ ] E-mail GUGiK / IŁ-PIB about the RTGMS interference archive

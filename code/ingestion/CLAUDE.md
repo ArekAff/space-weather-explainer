@@ -39,6 +39,8 @@ Run once: `cd code; uv run swx-noaa-live` (exit code 1 if any fetch failed). Tas
 - Gap log `raw/noaa_swpc/gap_log.csv`: kinds `fetch_failed`, `parse_failed`, `no_data` (interval missing in the
   source) and `lost_before_coverage` (collector off longer than the file keeps). The 7-day file is fetched when the
   short file does not reach back to the last stored time, when nothing is stored, and once a day.
+- Files whose history far exceeds the run interval (RTSW ~24 h, ACE 1h ~30 days, GOES 1-day) are fetched at most
+  every 6 h (`min_interval_h` on the product), so runs do not re-archive near-identical multi-MB copies.
 - Status of everything from this collector is `realtime`. Never merge it into the historical GFZ/OMNI tables.
 
 ## Source-specific gotchas

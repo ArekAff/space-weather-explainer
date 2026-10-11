@@ -118,6 +118,9 @@ class Product:
     qualifiers: tuple[str, ...] = ()
     spacecraft_field: str | None = None
     time_fields: tuple[str, ...] = ()  # extra timestamps, stored as minutes after time_tag
+    # Skip the product if it was fetched less than this many hours ago. For files whose history is much longer
+    # than the run interval, so each run does not re-archive an almost identical multi-MB copy.
+    min_interval_h: float = 0.0
 
     @property
     def dataset(self) -> str:
@@ -134,10 +137,16 @@ PRODUCTS: tuple[Product, ...] = (
         long_path="products/geospace/propagated-solar-wind.json",
         time_fields=("propagated_time_tag",),
     ),
-    Product("ace_swepam_1h", "json/ace/swepam/ace_swepam_1h.json", "series", cadence_min=60),
-    Product("ace_mag_1h", "json/ace/mag/ace_mag_1h.json", "series", cadence_min=60),
-    Product("rtsw_wind", "json/rtsw/rtsw_wind_1m.json", "series", spacecraft_field="source"),
-    Product("rtsw_mag", "json/rtsw/rtsw_mag_1m.json", "series", spacecraft_field="source"),
+    # Keeps ~30 days.
+    Product(
+        "ace_swepam_1h", "json/ace/swepam/ace_swepam_1h.json", "series", cadence_min=60, min_interval_h=6
+    ),
+    Product("ace_mag_1h", "json/ace/mag/ace_mag_1h.json", "series", cadence_min=60, min_interval_h=6),
+    # Keep ~24 h (checked 2026-10-11), about 4 MB together.
+    Product(
+        "rtsw_wind", "json/rtsw/rtsw_wind_1m.json", "series", spacecraft_field="source", min_interval_h=6
+    ),
+    Product("rtsw_mag", "json/rtsw/rtsw_mag_1m.json", "series", spacecraft_field="source", min_interval_h=6),
     Product("kp_1m", "json/planetary_k_index_1m.json", "series"),
     Product("kp_3h", "products/noaa-planetary-k-index.json", "series", cadence_min=180),
     Product(
@@ -147,6 +156,7 @@ PRODUCTS: tuple[Product, ...] = (
         long_path="json/goes/primary/integral-protons-7-day.json",
         cadence_min=5,
         qualifiers=("satellite", "energy"),
+        min_interval_h=6,
     ),
     Product("kp_forecast", "products/noaa-planetary-k-index-forecast.json", "raw"),
     Product("alerts", "products/alerts.json", "raw"),
@@ -518,10 +528,25 @@ class Collector:
         self.results[-1].rows_added = store.add(rows)
         return rows
 
+    def _due(self, product: Product) -> bool:
+        """False if the product was fetched successfully less than `min_interval_h` hours ago."""
+        last = self.state.get(f"fetched_at:{product.name}")
+        if not product.min_interval_h or last is None:
+            return True
+        age = utc_now() - datetime.fromisoformat(last)
+        if age < timedelta(hours=product.min_interval_h):
+            log.info("%s: skipped, fetched %s ago (interval %s h)", product.name, age, product.min_interval_h)
+            return False
+        return True
+
     def run_series(self, product: Product) -> None:
+        if not self._due(product):
+            return
         store = SeriesStore(self.root, product.dataset)
         last_before = store.last_time()
         short = self._ingest_series(product, product.path, store)
+        if short is not None:
+            self.state[f"fetched_at:{product.name}"] = utc_now().isoformat(timespec="seconds")
         coverage = short
         if product.long_path:
             long_key = f"long_fetched_at:{product.name}"
