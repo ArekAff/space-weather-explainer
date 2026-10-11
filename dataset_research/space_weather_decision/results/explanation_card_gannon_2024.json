@@ -1,0 +1,133 @@
+{
+  "moment": "2024-05-10/11 geomagnetic storm ('Gannon')",
+  "series_evidence": {
+    "Kp_max": "9o",
+    "Hp30_max": 11.333,
+    "daily_Ap_2024-05-11": 271,
+    "rank_of_2024-05-11_by_daily_Ap_since_1957": 2,
+    "OMNI_min_Bz_nT": -35.3,
+    "OMNI_min_Bz_time": "2024-05-11 00:30",
+    "OMNI_max_speed_km_s": 1006.0,
+    "OMNI_min_Dst_nT": -406.0,
+    "OMNI_min_Dst_time": "2024-05-11 02:30",
+    "OMNI_max_AE_nT": 1966.0,
+    "Belsk_H_step_at_SSC_nT": 125.9,
+    "Belsk_min_H_nT": 18211.0,
+    "Belsk_min_H_time": "2024-05-10 22:16",
+    "Belsk_H_range_nT": 1139.0,
+    "Belsk_max_1min_dH_nT": 248.5,
+    "Belsk_max_1min_dH_time": "2024-05-10 22:37",
+    "Wikipedia_Aurora_en_views_2024-05-11": 341117,
+    "Wikipedia_Zorza_polarna_pl_views_2024-05-11": 20795,
+    "Wikipedia_Zorza_polarna_pl_median_daily_views_Apr_2024": 195.0,
+    "Belsk_H_17:05_17:06_17:07_17:08": [
+      19027.9,
+      19021.1,
+      19121.2,
+      19229.1
+    ]
+  },
+  "catalogue_evidence": {
+    "DONKI_GST": [
+      {
+        "gst_id": "2024-05-10T15:00:00-GST-001",
+        "kp_max": 9.0
+      },
+      {
+        "gst_id": "2024-05-12T21:00:00-GST-001",
+        "kp_max": 6.33
+      }
+    ],
+    "DONKI_linked_CMEs": [
+      {
+        "activity_id": "2024-05-08T05:36:00-CME-001",
+        "speed_kms": 870,
+        "source_location": "S22W10",
+        "active_region_num": 13664.0,
+        "type": "C"
+      },
+      {
+        "activity_id": "2024-05-08T12:24:00-CME-001",
+        "speed_kms": 776,
+        "source_location": "S20W11",
+        "active_region_num": 13664.0,
+        "type": "C"
+      },
+      {
+        "activity_id": "2024-05-08T19:12:00-CME-001",
+        "speed_kms": 828,
+        "source_location": "N10E20",
+        "active_region_num": 13667.0,
+        "type": "C"
+      },
+      {
+        "activity_id": "2024-05-08T22:24:00-CME-001",
+        "speed_kms": 1257,
+        "source_location": "S20W17",
+        "active_region_num": 13664.0,
+        "type": "O"
+      },
+      {
+        "activity_id": "2024-05-09T09:24:00-CME-001",
+        "speed_kms": 1330,
+        "source_location": "S20W25",
+        "active_region_num": 13664.0,
+        "type": "O"
+      },
+      {
+        "activity_id": "2024-05-10T07:12:00-CME-001",
+        "speed_kms": 1018,
+        "source_location": "S18W37",
+        "active_region_num": 13664.0,
+        "type": "O"
+      }
+    ],
+    "DONKI_IPS_at_Earth": [
+      "2024-05-10T16:36Z",
+      "2024-05-11T09:30Z",
+      "2024-05-11T20:30Z",
+      "2024-05-12T08:55Z"
+    ],
+    "RichardsonCane_ICME": [
+      {
+        "disturbance_time": "2024-05-10 17:05:00",
+        "icme_start": "2024-05-10 20:00:00",
+        "icme_end": "2024-05-12 15:00:00",
+        "dst_min_nT": "-406",
+        "v_icme": "800",
+        "lasco_cme": "2024/05/07 0312 D, 0524 D, 2024/05/08 0536 HD, 1224 HD, 1912 D, 2224 HD, 2024/05/09 0924 HD, 1823 HD"
+      },
+      {
+        "disturbance_time": "2024-05-12 09:17:00",
+        "icme_start": "2024-05-12 21:00:00",
+        "icme_end": "2024-05-14 06:00:00",
+        "dst_min_nT": "...",
+        "v_icme": "660",
+        "lasco_cme": "2024/05/10 0712 HD, 2128 D, 2313 D, 2024/05/11 0136 HD, 0312 D"
+      }
+    ],
+    "SSC_Ebre_ISGI": [
+      {
+        "datetime_utc": "2024-05-10 17:05",
+        "type": "SSC",
+        "amplitude_nT": NaN
+      }
+    ],
+    "NOAA_SEP_events": [
+      {
+        "start_time": "2024-05-10 13:35",
+        "max_time": "2024-05-10 17:45",
+        "peak_pfu_gt10MeV": "208",
+        "flare_importance": "X3.9",
+        "location": "S17W36"
+      },
+      {
+        "start_time": "2024-05-11 02:10",
+        "max_time": "2024-05-11 09:10",
+        "peak_pfu_gt10MeV": "116",
+        "flare_importance": "X5.8",
+        "location": "S17W44"
+      }
+    ]
+  }
+}

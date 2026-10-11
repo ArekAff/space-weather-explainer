@@ -1,0 +1,122 @@
+{
+ "space_weather": {
+  "windows_indexed": 132043,
+  "hits_with_storm_in_window_(Kp>=7)": 10,
+  "hits": 10,
+  "median_next24h_maxKp_of_analogues": 7.3,
+  "actual_next24h_maxKp": 9.0
+ },
+ "nyc_taxi": {
+  "windows_indexed": 3836,
+  "hits_on_labelled_or_holiday": 7,
+  "hits": 10
+ },
+ "hydro": {
+  "windows_indexed": 2101,
+  "top_hits": [
+   [
+    "glucholazy",
+    "2024-09-09"
+   ],
+   [
+    "nysa",
+    "2024-09-10"
+   ],
+   [
+    "raciborz_miedonia",
+    "2024-09-08"
+   ],
+   [
+    "brzeg_dolny",
+    "2024-09-09"
+   ],
+   [
+    "opole_groszowice",
+    "2024-09-10"
+   ]
+  ]
+ },
+ "ecg": {
+  "beat": {
+   "window": "0 days 00:00:00.711104",
+   "precision@20": 0.05,
+   "random_baseline": 0.006
+  },
+  "rhythm": {
+   "window": "0 days 00:00:06.400000",
+   "precision@20": 0.1,
+   "random_baseline": 0.058
+  }
+ },
+ "load_lockdown": {
+  "windows_indexed": 14338,
+  "top_hits": [
+   [
+    "1D",
+    "2020-12-07"
+   ],
+   [
+    "1D",
+    "2019-01-28"
+   ],
+   [
+    "1D",
+    "2019-12-09"
+   ],
+   [
+    "1D",
+    "2015-12-07"
+   ],
+   [
+    "1D",
+    "2022-01-31"
+   ],
+   [
+    "1D",
+    "2018-02-19"
+   ]
+  ]
+ },
+ "pv_residual": {
+  "windows_indexed": 2222,
+  "top_hits": [
+   [
+    "2018-06-14 07:00:00",
+    "0.2082718461751938"
+   ],
+   [
+    "2020-05-16 07:00:00",
+    "0.21172507107257843"
+   ],
+   [
+    "2015-03-17 07:00:00",
+    "0.21788576245307922"
+   ],
+   [
+    "2022-04-10 07:00:00",
+    "0.22773832082748413"
+   ],
+   [
+    "2017-02-27 07:00:00",
+    "0.2302851527929306"
+   ]
+  ],
+  "lancedb_top3": [
+   [
+    "Zurich irradiance ratio",
+    "1h",
+    "2015-03-20 07:00:00"
+   ],
+   [
+    "Zurich irradiance ratio",
+    "1h",
+    "2018-06-14 07:00:00"
+   ],
+   [
+    "Zurich irradiance ratio",
+    "1h",
+    "2020-05-16 07:00:00"
+   ]
+  ]
+ }
+}

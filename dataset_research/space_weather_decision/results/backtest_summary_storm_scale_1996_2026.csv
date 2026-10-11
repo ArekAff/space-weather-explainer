@@ -1,0 +1,10 @@
+method,n,MAE_next24h_peak_Kp,CRPS_next24h,CRPS_next72h,Brier_G3plus,BSS_G3plus_vs_climatology,AUC_G3plus,Brier_G4plus,BSS_G4plus_vs_climatology
+analogue_dense,951,0.968,0.707,0.716,0.1066,0.013,0.62,0.0378,0.063
+analogue_onsets,951,0.928,0.68,0.713,0.1064,0.015,0.632,0.039,0.032
+analogue_onsets_k30,951,0.913,0.657,0.679,0.1038,0.04,0.638,0.039,0.032
+analogue_onsets_k30_weighted,951,0.889,0.634,0.668,0.0989,0.085,0.668,0.0371,0.08
+cond_climatology,951,0.861,0.62,0.651,0.0945,0.126,0.704,0.0358,0.113
+cond_climatology_plus_SSC,951,0.833,0.596,0.632,0.0896,0.171,0.761,0.0352,0.128
+analogue_k30_weighted_plus_SSC,951,0.86,0.615,0.65,0.093,0.139,0.733,0.0358,0.111
+climatology,951,0.927,0.669,0.687,0.1081,0.0,0.499,0.0403,0.0
+persistence,951,0.855,0.855,0.89,0.1115,-0.032,0.576,0.0358,0.113

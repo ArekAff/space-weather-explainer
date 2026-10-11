@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Secrets and personal agent notes
+.env
+.env.*
+_netrc
+.netrc
+*.netrc
+CLAUDE.local.md
+
+# Data store written by code/ingestion (see code/CLAUDE.md)
+/data/
+
+# Advisor correspondence stays private (not on GitHub)
+/maile_surma/
+/docs/email_promotor/
+
+# Raw downloaded datasets: keep the SOURCE/MANIFEST notes, re-fetch the data with the scripts
+/dataset_research/samples/**/*
+!/dataset_research/samples/**/
+!/dataset_research/samples/**/SOURCE.md
+/dataset_research/space_weather_decision/data/*
+!/dataset_research/space_weather_decision/data/MANIFEST_*.md
+*.csv.gz

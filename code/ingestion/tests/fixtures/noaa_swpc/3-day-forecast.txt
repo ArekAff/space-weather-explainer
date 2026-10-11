@@ -1,0 +1,5 @@
+:Product: 3-Day Forecast
+:Issued: 2026 Oct 11 1230 UTC
+# Prepared by the U.S. Dept. of Commerce, NOAA, Space Weather Prediction Center
+#
+A. NOAA Geomagnetic Activity Observation and Forecast

@@ -1,0 +1,1321 @@
+{
+ "integrity_celestrak": {
+  "first": "1957-10-01",
+  "last": "2025-07-20",
+  "days": 24765,
+  "missing_days": 0,
+  "duplicate_days": 0,
+  "kp_missing": 0,
+  "ap_missing": 0,
+  "kp_values_off_thirds_grid": 0,
+  "kp_ap_pairs_checked": 198120,
+  "kp_ap_mismatches": 0,
+  "Ap_vs_mean_of_8_ap_mismatches": 0,
+  "SN_missing": 0,
+  "F107_obs_missing": 0,
+  "F107_adj_missing": 0,
+  "kp_sum_mismatches": 0
+ },
+ "integrity_gfz_extension": {
+  "first": "2025-07-01",
+  "last": "2026-10-09",
+  "days": 466,
+  "missing_days": 0,
+  "duplicate_days": 0,
+  "kp_missing": 0,
+  "ap_missing": 0,
+  "kp_values_off_thirds_grid": 0,
+  "kp_ap_pairs_checked": 3728,
+  "kp_ap_mismatches": 0,
+  "Ap_vs_mean_of_8_ap_mismatches": 0,
+  "SN_missing": 0,
+  "F107_obs_missing": 1,
+  "F107_adj_missing": 1
+ },
+ "gfz_extension_status_days": {
+  "def": 457,
+  "pre": 9
+ },
+ "overlap_celestrak_vs_gfz": {
+  "days": 20,
+  "kp_intervals_different": 74,
+  "kp_intervals": 160,
+  "kp_differences_of_one_third": 73,
+  "kp_preliminary_higher": 39,
+  "kp_preliminary_lower": 35,
+  "ap_values_different": 74,
+  "Ap_days_different": 10,
+  "SN_days_different": 19,
+  "F107_obs_max_abs_diff": 0.0,
+  "F107_adj_max_abs_diff": 0.0
+ },
+ "merged_series": {
+  "first": "1957-10-01",
+  "last": "2026-10-09",
+  "days": 25211,
+  "three_hour_values": 201688,
+  "years": 69.02
+ },
+ "f107_adjusted_vs_observed": {
+  "days": 25210,
+  "corr_ratio_vs_r2": 1.0,
+  "median_abs_residual": 0.0,
+  "share_within_0.005": 1.0,
+  "ratio_p1": 0.967,
+  "ratio_p99": 1.034
+ },
+ "sn_vs_f107_monthly_corr": 0.977,
+ "solar_cycle_maxima_13m_smoothed_SN": [
+  [
+   "1958-04",
+   278.7
+  ],
+  [
+   "1968-11",
+   156.6
+  ],
+  [
+   "1979-12",
+   232.9
+  ],
+  [
+   "1989-11",
+   212.5
+  ],
+  [
+   "2001-11",
+   180.3
+  ],
+  [
+   "2014-04",
+   116.4
+  ],
+  [
+   "2024-10",
+   160.9
+  ]
+ ],
+ "solar_cycle_minima_13m_smoothed_SN": [
+  [
+   "1964-10",
+   14.2
+  ],
+  [
+   "1976-03",
+   17.8
+  ],
+  [
+   "1986-09",
+   13.5
+  ],
+  [
+   "1996-05",
+   11.2
+  ],
+  [
+   "2008-12",
+   2.2
+  ],
+  [
+   "2019-12",
+   1.8
+  ]
+ ],
+ "geomagnetic_activity_peak_vs_SN_max": [
+  {
+   "cycle_from": "1954-04",
+   "SN_max": "1958-04",
+   "year_of_max_annual_Ap": 1960,
+   "max_annual_Ap": 23.7,
+   "lag_years_after_SN_max": 2.2
+  },
+  {
+   "cycle_from": "1964-10",
+   "SN_max": "1968-11",
+   "year_of_max_annual_Ap": 1974,
+   "max_annual_Ap": 19.6,
+   "lag_years_after_SN_max": 5.6
+  },
+  {
+   "cycle_from": "1976-03",
+   "SN_max": "1979-12",
+   "year_of_max_annual_Ap": 1982,
+   "max_annual_Ap": 22.4,
+   "lag_years_after_SN_max": 2.5
+  },
+  {
+   "cycle_from": "1986-09",
+   "SN_max": "1989-11",
+   "year_of_max_annual_Ap": 1991,
+   "max_annual_Ap": 23.4,
+   "lag_years_after_SN_max": 1.6
+  },
+  {
+   "cycle_from": "1996-05",
+   "SN_max": "2001-11",
+   "year_of_max_annual_Ap": 2003,
+   "max_annual_Ap": 21.8,
+   "lag_years_after_SN_max": 1.6
+  },
+  {
+   "cycle_from": "2008-12",
+   "SN_max": "2014-04",
+   "year_of_max_annual_Ap": 2015,
+   "max_annual_Ap": 12.2,
+   "lag_years_after_SN_max": 1.2
+  },
+  {
+   "cycle_from": "2019-12",
+   "SN_max": "2024-10",
+   "year_of_max_annual_Ap": 2025,
+   "max_annual_Ap": 15.5,
+   "lag_years_after_SN_max": 0.7
+  }
+ ],
+ "semiannual": {
+  "G1plus_share_of_3h_intervals_by_month": [
+   0.0403,
+   0.0673,
+   0.0808,
+   0.0868,
+   0.0659,
+   0.0528,
+   0.0496,
+   0.0589,
+   0.0807,
+   0.0811,
+   0.0625,
+   0.039
+  ],
+  "equinox_over_solstice_ratio": 1.813
+ },
+ "recurrence_27d": {
+  "acf_lag27": 0.188,
+  "best_lag_20_35": 27,
+  "acf_best": 0.188,
+  "acf_lag13": -0.048,
+  "acf_lag20": -0.067,
+  "top5_years": [
+   [
+    2008,
+    0.58
+   ],
+   [
+    2007,
+    0.56
+   ],
+   [
+    1974,
+    0.49
+   ],
+   [
+    1994,
+    0.48
+   ],
+   [
+    1976,
+    0.45
+   ]
+  ],
+  "mean_acf27_declining_phase_years": 0.243,
+  "mean_acf27_other_years": 0.111
+ },
+ "gscale_vs_noaa": [
+  {
+   "level": "G1",
+   "noaa_events_per_cycle": 1700,
+   "noaa_days_per_cycle": 900,
+   "data_3h_intervals_per_cycle": 1356,
+   "data_days_with_level_per_cycle": 743,
+   "data_days_peaking_at_level_per_cycle": 497,
+   "data_storm_events_peaking_at_level_per_cycle": 263.3,
+   "data_days_with_level_per_cycle_1957_2008": 859,
+   "data_3h_intervals_per_cycle_1957_2008": 1586
+  },
+  {
+   "level": "G2",
+   "noaa_events_per_cycle": 600,
+   "noaa_days_per_cycle": 360,
+   "data_3h_intervals_per_cycle": 453,
+   "data_days_with_level_per_cycle": 286,
+   "data_days_peaking_at_level_per_cycle": 204,
+   "data_storm_events_peaking_at_level_per_cycle": 118.2,
+   "data_days_with_level_per_cycle_1957_2008": 338,
+   "data_3h_intervals_per_cycle_1957_2008": 538
+  },
+  {
+   "level": "G3",
+   "noaa_events_per_cycle": 200,
+   "noaa_days_per_cycle": 130,
+   "data_3h_intervals_per_cycle": 161,
+   "data_days_with_level_per_cycle": 100,
+   "data_days_peaking_at_level_per_cycle": 72,
+   "data_storm_events_peaking_at_level_per_cycle": 47.0,
+   "data_days_with_level_per_cycle_1957_2008": 122,
+   "data_3h_intervals_per_cycle_1957_2008": 196
+  },
+  {
+   "level": "G4",
+   "noaa_events_per_cycle": 100,
+   "noaa_days_per_cycle": 60,
+   "data_3h_intervals_per_cycle": 75,
+   "data_days_with_level_per_cycle": 39,
+   "data_days_peaking_at_level_per_cycle": 36,
+   "data_storm_events_peaking_at_level_per_cycle": 26.3,
+   "data_days_with_level_per_cycle_1957_2008": 47,
+   "data_3h_intervals_per_cycle_1957_2008": 91
+  },
+  {
+   "level": "G5",
+   "noaa_events_per_cycle": 4,
+   "noaa_days_per_cycle": 4,
+   "data_3h_intervals_per_cycle": 4,
+   "data_days_with_level_per_cycle": 3,
+   "data_days_peaking_at_level_per_cycle": 3,
+   "data_storm_events_peaking_at_level_per_cycle": 2.4,
+   "data_days_with_level_per_cycle_1957_2008": 4,
+   "data_3h_intervals_per_cycle_1957_2008": 4
+  }
+ ],
+ "gscale_cycles_covered": 6.27,
+ "top15_days_by_Ap": [
+  [
+   "1960-11-13",
+   280,
+   "9o"
+  ],
+  [
+   "2024-05-11",
+   271,
+   "9o"
+  ],
+  [
+   "1989-03-13",
+   246,
+   "9o"
+  ],
+  [
+   "1960-04-01",
+   241,
+   "9-"
+  ],
+  [
+   "1959-07-15",
+   236,
+   "9o"
+  ],
+  [
+   "2003-10-29",
+   204,
+   "9o"
+  ],
+  [
+   "1960-10-06",
+   203,
+   "9-"
+  ],
+  [
+   "1986-02-08",
+   202,
+   "9o"
+  ],
+  [
+   "1958-07-08",
+   200,
+   "9o"
+  ],
+  [
+   "1958-02-11",
+   199,
+   "9o"
+  ],
+  [
+   "1982-09-06",
+   199,
+   "9-"
+  ],
+  [
+   "1991-06-05",
+   196,
+   "9-"
+  ],
+  [
+   "2001-03-31",
+   192,
+   "9-"
+  ],
+  [
+   "2003-10-30",
+   191,
+   "9o"
+  ],
+  [
+   "1960-10-07",
+   186,
+   "9o"
+  ]
+ ],
+ "events": {
+  "G1plus_events": 2869,
+  "G1_peak_events": 1652,
+  "G2_peak_events": 742,
+  "G3_peak_events": 295,
+  "G4_peak_events": 165,
+  "G5_peak_events": 15
+ },
+ "storm_frequency_1957_2026": {
+  "days_per_year_G1plus": 73.9,
+  "days_per_year_G3plus": 10.1,
+  "storm_events_per_year_G3plus": 6.9,
+  "storm_events_per_year_G4plus": 2.6,
+  "calendar_years_1958_2025_without_G3plus_storm": 7,
+  "max_G3plus_storms_in_one_year": 18,
+  "year_of_max": 1958
+ },
+ "knowledge_link_coverage": [
+  {
+   "level": "G2",
+   "n_1957_2026": 741,
+   "pct_with_SSC_1957_2026": 38.3,
+   "n_1996_2026": 224,
+   "pct_with_ICME_1996_2026": 40.2,
+   "n_2010_2026": 112,
+   "pct_DONKI_GST": 86.6,
+   "pct_GST_linked_CME": 38.4,
+   "pct_GST_linked_HSS": 42.9,
+   "pct_GST_linked_IPS": 43.8,
+   "pct_DONKI_IPS_at_Earth": 66.1,
+   "pct_any_cause_evidence_2010_2026": 92.9
+  },
+  {
+   "level": "G3",
+   "n_1957_2026": 295,
+   "pct_with_SSC_1957_2026": 64.4,
+   "n_1996_2026": 86,
+   "pct_with_ICME_1996_2026": 67.4,
+   "n_2010_2026": 35,
+   "pct_DONKI_GST": 97.1,
+   "pct_GST_linked_CME": 74.3,
+   "pct_GST_linked_HSS": 37.1,
+   "pct_GST_linked_IPS": 74.3,
+   "pct_DONKI_IPS_at_Earth": 85.7,
+   "pct_any_cause_evidence_2010_2026": 100.0
+  },
+  {
+   "level": "G4",
+   "n_1957_2026": 165,
+   "pct_with_SSC_1957_2026": 87.3,
+   "n_1996_2026": 50,
+   "pct_with_ICME_1996_2026": 98.0,
+   "n_2010_2026": 19,
+   "pct_DONKI_GST": 100.0,
+   "pct_GST_linked_CME": 94.7,
+   "pct_GST_linked_HSS": 10.5,
+   "pct_GST_linked_IPS": 84.2,
+   "pct_DONKI_IPS_at_Earth": 100.0,
+   "pct_any_cause_evidence_2010_2026": 100.0
+  },
+  {
+   "level": "G5",
+   "n_1957_2026": 15,
+   "pct_with_SSC_1957_2026": 100.0,
+   "n_1996_2026": 3,
+   "pct_with_ICME_1996_2026": 100.0,
+   "n_2010_2026": 1,
+   "pct_DONKI_GST": 100.0,
+   "pct_GST_linked_CME": 100.0,
+   "pct_GST_linked_HSS": 0.0,
+   "pct_GST_linked_IPS": 100.0,
+   "pct_DONKI_IPS_at_Earth": 100.0,
+   "pct_any_cause_evidence_2010_2026": 100.0
+  },
+  {
+   "level": "G3+",
+   "n_1957_2026": 475,
+   "pct_with_SSC_1957_2026": 73.5,
+   "n_1996_2026": 139,
+   "pct_with_ICME_1996_2026": 79.1,
+   "n_2010_2026": 55,
+   "pct_DONKI_GST": 98.2,
+   "pct_GST_linked_CME": 81.8,
+   "pct_GST_linked_HSS": 27.3,
+   "pct_GST_linked_IPS": 78.2,
+   "pct_DONKI_IPS_at_Earth": 90.9,
+   "pct_any_cause_evidence_2010_2026": 100.0
+  }
+ ],
+ "knowledge_link_windows": {
+  "DONKI storm record": "storm start in [onset-12h, end+12h]",
+  "SSC and DONKI shock at Earth": "in [onset-24h, peak+3h]",
+  "ICME": "[disturbance-3h, ICME end+6h] overlaps [onset, peak+3h]"
+ },
+ "knowledge_link_chance_level_G3plus_2010_2026": {
+  "n": 54,
+  "actual_any_cause_pct": 100.0,
+  "actual_cme_hss_or_icme_pct": 100.0,
+  "shifted_windows_any_cause_pct": 31.7,
+  "shifted_windows_cme_hss_or_icme_pct": 21.7,
+  "note": "same windows shifted by a random 5-25 days, 30 repetitions"
+ },
+ "icme_disturbance_equals_an_SSC_time": 140,
+ "donki_gst_consistency": {
+  "donki_gst_records": 199,
+  "pct_matching_a_GFZ_Kp_G2plus_event": 85.9,
+  "unmatched_GFZ_max_kp_near_start": {
+   "5+": 23,
+   "5o": 3,
+   "4+": 1,
+   "5-": 1
+  },
+  "records_with_NOAA_kp_ge_6minus": 196,
+  "of_these_below_G2_in_GFZ": 26,
+  "of_these_GFZ_max_kp": {
+   "5+": 22,
+   "5o": 3,
+   "5-": 1
+  },
+  "donki_kp_max_distribution": {
+   "5.0": 3,
+   "6.0": 136,
+   "7.0": 42,
+   "8.0": 14,
+   "9.0": 4
+  }
+ },
+ "anomaly_detector_settings": {
+  "robust_z": "log(ap+1) vs. trailing 27-day median, scale = IQR/1.349 + 0.15",
+  "threshold": 3.0
+ },
+ "anomaly_detection_vs_SSC": {
+  "robust_z_top200": {
+   "n": 200,
+   "pct_with_SSC": 67.5,
+   "base_rate_pct": 8.0
+  },
+  "robust_z_all": {
+   "n": 409,
+   "pct_with_SSC": 59.2,
+   "base_rate_pct": 7.7,
+   "share_reaching_G1": 92.9,
+   "share_reaching_G3": 48.9
+  },
+  "robust_z_below_G1_only": {
+   "n": 29,
+   "pct_with_SSC": 20.7,
+   "base_rate_pct": 4.5
+  },
+  "kp_threshold_G1plus_events": {
+   "n": 2867,
+   "pct_with_SSC": 33.2,
+   "base_rate_pct": 9.8
+  },
+  "kp_threshold_G3plus_events": {
+   "n": 475,
+   "pct_with_SSC": 73.5,
+   "base_rate_pct": 13.8
+  },
+  "recall_of_G3plus_storms_by_robust_z": 41.1,
+  "examples_below_G1": [
+   [
+    "2021-07-14 12:00",
+    "4+",
+    4.2
+   ],
+   [
+    "1999-06-02 21:00",
+    "4+",
+    3.4
+   ],
+   [
+    "1965-06-03 18:00",
+    "4+",
+    3.3
+   ],
+   [
+    "2020-03-19 00:00",
+    "4+",
+    3.3
+   ],
+   [
+    "1966-07-04 15:00",
+    "4+",
+    3.3
+   ]
+  ],
+  "matrix_profile_discords_top50_daily_Ap_m3": {
+   "n": 50,
+   "pct_with_SSC": 74.0,
+   "base_rate_pct": 29.2,
+   "pct_containing_G3plus_day": 76.0
+  }
+ },
+ "onsets_with_SSC_pct": 29.8,
+ "backtest_storm_scale": {
+  "queries": 2574,
+  "first_query": "1963-01-13 00:00",
+  "base_rate_G3plus_next24h_pct": 12.7,
+  "base_rate_G4plus_next24h_pct": 4.2,
+  "summary_all": [
+   {
+    "method": "analogue_dense",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 1.015,
+    "CRPS_next24h": 0.744,
+    "CRPS_next72h": 0.743,
+    "Brier_G3plus": 0.1119,
+    "BSS_G3plus_vs_climatology": -0.004,
+    "AUC_G3plus": 0.606,
+    "Brier_G4plus": 0.0406,
+    "BSS_G4plus_vs_climatology": 0.002
+   },
+   {
+    "method": "analogue_onsets",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.96,
+    "CRPS_next24h": 0.702,
+    "CRPS_next72h": 0.718,
+    "Brier_G3plus": 0.1123,
+    "BSS_G3plus_vs_climatology": -0.007,
+    "AUC_G3plus": 0.606,
+    "Brier_G4plus": 0.0418,
+    "BSS_G4plus_vs_climatology": -0.027
+   },
+   {
+    "method": "analogue_onsets_k30",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.938,
+    "CRPS_next24h": 0.672,
+    "CRPS_next72h": 0.679,
+    "Brier_G3plus": 0.1089,
+    "BSS_G3plus_vs_climatology": 0.023,
+    "AUC_G3plus": 0.613,
+    "Brier_G4plus": 0.0402,
+    "BSS_G4plus_vs_climatology": 0.012
+   },
+   {
+    "method": "analogue_onsets_k30_weighted",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.918,
+    "CRPS_next24h": 0.656,
+    "CRPS_next72h": 0.669,
+    "Brier_G3plus": 0.1058,
+    "BSS_G3plus_vs_climatology": 0.051,
+    "AUC_G3plus": 0.645,
+    "Brier_G4plus": 0.0388,
+    "BSS_G4plus_vs_climatology": 0.047
+   },
+   {
+    "method": "cond_climatology",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.887,
+    "CRPS_next24h": 0.633,
+    "CRPS_next72h": 0.649,
+    "Brier_G3plus": 0.1009,
+    "BSS_G3plus_vs_climatology": 0.095,
+    "AUC_G3plus": 0.683,
+    "Brier_G4plus": 0.0379,
+    "BSS_G4plus_vs_climatology": 0.069
+   },
+   {
+    "method": "cond_climatology_plus_SSC",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.864,
+    "CRPS_next24h": 0.612,
+    "CRPS_next72h": 0.633,
+    "Brier_G3plus": 0.0969,
+    "BSS_G3plus_vs_climatology": 0.131,
+    "AUC_G3plus": 0.741,
+    "Brier_G4plus": 0.0376,
+    "BSS_G4plus_vs_climatology": 0.077
+   },
+   {
+    "method": "analogue_k30_weighted_plus_SSC",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.884,
+    "CRPS_next24h": 0.633,
+    "CRPS_next72h": 0.652,
+    "Brier_G3plus": 0.1008,
+    "BSS_G3plus_vs_climatology": 0.096,
+    "AUC_G3plus": 0.726,
+    "Brier_G4plus": 0.0378,
+    "BSS_G4plus_vs_climatology": 0.071
+   },
+   {
+    "method": "climatology",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.946,
+    "CRPS_next24h": 0.677,
+    "CRPS_next72h": 0.681,
+    "Brier_G3plus": 0.1115,
+    "BSS_G3plus_vs_climatology": 0.0,
+    "AUC_G3plus": 0.479,
+    "Brier_G4plus": 0.0407,
+    "BSS_G4plus_vs_climatology": 0.0
+   },
+   {
+    "method": "persistence",
+    "n": 2574,
+    "MAE_next24h_peak_Kp": 0.875,
+    "CRPS_next24h": 0.875,
+    "CRPS_next72h": 0.915,
+    "Brier_G3plus": 0.1193,
+    "BSS_G3plus_vs_climatology": -0.07,
+    "AUC_G3plus": 0.563,
+    "Brier_G4plus": 0.0396,
+    "BSS_G4plus_vs_climatology": 0.026
+   }
+  ],
+  "summary_1996_2026": [
+   {
+    "method": "analogue_dense",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.968,
+    "CRPS_next24h": 0.707,
+    "CRPS_next72h": 0.716,
+    "Brier_G3plus": 0.1066,
+    "BSS_G3plus_vs_climatology": 0.013,
+    "AUC_G3plus": 0.62,
+    "Brier_G4plus": 0.0378,
+    "BSS_G4plus_vs_climatology": 0.063
+   },
+   {
+    "method": "analogue_onsets",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.928,
+    "CRPS_next24h": 0.68,
+    "CRPS_next72h": 0.713,
+    "Brier_G3plus": 0.1064,
+    "BSS_G3plus_vs_climatology": 0.015,
+    "AUC_G3plus": 0.632,
+    "Brier_G4plus": 0.039,
+    "BSS_G4plus_vs_climatology": 0.032
+   },
+   {
+    "method": "analogue_onsets_k30",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.913,
+    "CRPS_next24h": 0.657,
+    "CRPS_next72h": 0.679,
+    "Brier_G3plus": 0.1038,
+    "BSS_G3plus_vs_climatology": 0.04,
+    "AUC_G3plus": 0.638,
+    "Brier_G4plus": 0.039,
+    "BSS_G4plus_vs_climatology": 0.032
+   },
+   {
+    "method": "analogue_onsets_k30_weighted",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.889,
+    "CRPS_next24h": 0.634,
+    "CRPS_next72h": 0.668,
+    "Brier_G3plus": 0.0989,
+    "BSS_G3plus_vs_climatology": 0.085,
+    "AUC_G3plus": 0.668,
+    "Brier_G4plus": 0.0371,
+    "BSS_G4plus_vs_climatology": 0.08
+   },
+   {
+    "method": "cond_climatology",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.861,
+    "CRPS_next24h": 0.62,
+    "CRPS_next72h": 0.651,
+    "Brier_G3plus": 0.0945,
+    "BSS_G3plus_vs_climatology": 0.126,
+    "AUC_G3plus": 0.704,
+    "Brier_G4plus": 0.0358,
+    "BSS_G4plus_vs_climatology": 0.113
+   },
+   {
+    "method": "cond_climatology_plus_SSC",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.833,
+    "CRPS_next24h": 0.596,
+    "CRPS_next72h": 0.632,
+    "Brier_G3plus": 0.0896,
+    "BSS_G3plus_vs_climatology": 0.171,
+    "AUC_G3plus": 0.761,
+    "Brier_G4plus": 0.0352,
+    "BSS_G4plus_vs_climatology": 0.128
+   },
+   {
+    "method": "analogue_k30_weighted_plus_SSC",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.86,
+    "CRPS_next24h": 0.615,
+    "CRPS_next72h": 0.65,
+    "Brier_G3plus": 0.093,
+    "BSS_G3plus_vs_climatology": 0.139,
+    "AUC_G3plus": 0.733,
+    "Brier_G4plus": 0.0358,
+    "BSS_G4plus_vs_climatology": 0.111
+   },
+   {
+    "method": "climatology",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.927,
+    "CRPS_next24h": 0.669,
+    "CRPS_next72h": 0.687,
+    "Brier_G3plus": 0.1081,
+    "BSS_G3plus_vs_climatology": 0.0,
+    "AUC_G3plus": 0.499,
+    "Brier_G4plus": 0.0403,
+    "BSS_G4plus_vs_climatology": 0.0
+   },
+   {
+    "method": "persistence",
+    "n": 951,
+    "MAE_next24h_peak_Kp": 0.855,
+    "CRPS_next24h": 0.855,
+    "CRPS_next72h": 0.89,
+    "Brier_G3plus": 0.1115,
+    "BSS_G3plus_vs_climatology": -0.032,
+    "AUC_G3plus": 0.576,
+    "Brier_G4plus": 0.0358,
+    "BSS_G4plus_vs_climatology": 0.113
+   }
+  ],
+  "extremes_actual_G4plus": {
+   "n": 109,
+   "mean_actual_peak": 8.06,
+   "mean_analogue_median": 4.92,
+   "mean_analogue_P_G4": 0.057,
+   "mean_climatology_P_G4": 0.053
+  }
+ },
+ "hand_picked_moments": [
+  {
+   "moment": "Halloween 2003",
+   "marked_interval_start": "2003-10-29 06:00",
+   "kp_marked": "9o",
+   "actual_next24h_peak": "9-",
+   "actual_G1plus_hours_next72h": 63,
+   "analogue_median_next24h_peak": "7+",
+   "analogue_P_G4plus_next24h": 0.3,
+   "analogue_median_G1plus_hours_next72h": 15.0,
+   "top5_analogues (interval, next-24h peak)": "1983-03-02 00h 7o; 1958-06-09 21h 5+; 1980-12-19 12h 8-; 2003-10-14 18h 7+; 1988-10-10 09h 7+",
+   "storm_peak_kp": "9o",
+   "donki_gst": "",
+   "ssc_in_storm": true,
+   "icme": true
+  },
+  {
+   "moment": "St Patrick's Day 2015",
+   "marked_interval_start": "2015-03-17 12:00",
+   "kp_marked": "8-",
+   "actual_next24h_peak": "8-",
+   "actual_G1plus_hours_next72h": 36,
+   "analogue_median_next24h_peak": "6o",
+   "analogue_P_G4plus_next24h": 0.1,
+   "analogue_median_G1plus_hours_next72h": 9.0,
+   "top5_analogues (interval, next-24h peak)": "1960-12-01 03h 7-; 1993-01-31 06h 6o; 1979-01-07 18h 4o; 2001-09-23 15h 6o; 1999-09-22 21h 6+",
+   "storm_peak_kp": "8-",
+   "donki_gst": "2015-03-17T06:00:00-GST-001",
+   "ssc_in_storm": true,
+   "icme": true
+  },
+  {
+   "moment": "Starlink loss Feb 2022",
+   "marked_interval_start": "2022-02-03 06:00",
+   "kp_marked": "5o",
+   "actual_next24h_peak": "5+",
+   "actual_G1plus_hours_next72h": 9,
+   "analogue_median_next24h_peak": "4+",
+   "analogue_P_G4plus_next24h": 0.2,
+   "analogue_median_G1plus_hours_next72h": 1.5,
+   "top5_analogues (interval, next-24h peak)": "1958-06-06 21h 8-; 1978-10-26 18h 5+; 1973-08-06 03h 4-; 2002-04-23 06h 4+; 2004-07-17 00h 4+",
+   "storm_peak_kp": "5+",
+   "donki_gst": "2022-02-03T06:00:00-GST-001",
+   "ssc_in_storm": false,
+   "icme": true
+  },
+  {
+   "moment": "Gannon May 2024",
+   "marked_interval_start": "2024-05-10 15:00",
+   "kp_marked": "8-",
+   "actual_next24h_peak": "9o",
+   "actual_G1plus_hours_next72h": 45,
+   "analogue_median_next24h_peak": "6o",
+   "analogue_P_G4plus_next24h": 0.1,
+   "analogue_median_G1plus_hours_next72h": 13.5,
+   "top5_analogues (interval, next-24h peak)": "1998-05-29 15h 5-; 2012-10-01 00h 6+; 2022-08-17 18h 6-; 1989-11-17 09h 8o; 1985-07-04 12h 5+",
+   "storm_peak_kp": "9o",
+   "donki_gst": "2024-05-10T15:00:00-GST-001;2024-05-12T21:00:00-GST-001",
+   "ssc_in_storm": true,
+   "icme": true
+  },
+  {
+   "moment": "Nov 2025 storm",
+   "marked_interval_start": "2025-11-12 00:00",
+   "kp_marked": "9-",
+   "actual_next24h_peak": "9-",
+   "actual_G1plus_hours_next72h": 27,
+   "analogue_median_next24h_peak": "6o",
+   "analogue_P_G4plus_next24h": 0.1,
+   "analogue_median_G1plus_hours_next72h": 15.0,
+   "top5_analogues (interval, next-24h peak)": "2005-02-18 00h 5-; 2006-08-19 12h 6o; 1987-09-10 12h 6o; 1998-06-26 00h 6+; 2000-05-23 18h 8o",
+   "storm_peak_kp": "9-",
+   "donki_gst": "2025-11-12T00:00:00-GST-001;2025-11-12T18:00:00-GST-001",
+   "ssc_in_storm": true,
+   "icme": true
+  },
+  {
+   "moment": "Jan 2026 storm",
+   "marked_interval_start": "2026-01-19 18:00",
+   "kp_marked": "8+",
+   "actual_next24h_peak": "9-",
+   "actual_G1plus_hours_next72h": 39,
+   "analogue_median_next24h_peak": "6+",
+   "analogue_P_G4plus_next24h": 0.3,
+   "analogue_median_G1plus_hours_next72h": 13.5,
+   "top5_analogues (interval, next-24h peak)": "1979-04-25 00h 8o; 1969-03-23 18h 8o; 1989-01-11 15h 6+; 1965-08-18 18h 5+; 2002-11-20 18h 7-",
+   "storm_peak_kp": "9-",
+   "donki_gst": "2026-01-19T18:00:00-GST-001",
+   "ssc_in_storm": true,
+   "icme": true
+  }
+ ],
+ "backtest_rotation_scale": [
+  {
+   "subset": "all",
+   "n": 835,
+   "skill_vs_climatology_analogue": 0.003,
+   "skill_vs_climatology_recurrence": -0.14,
+   "skill_vs_climatology_blend": 0.014,
+   "MAE_climatology_logAp": 0.554
+  },
+  {
+   "subset": "declining_phase",
+   "n": 477,
+   "skill_vs_climatology_analogue": 0.035,
+   "skill_vs_climatology_recurrence": -0.071,
+   "skill_vs_climatology_blend": 0.064,
+   "MAE_climatology_logAp": 0.571
+  },
+  {
+   "subset": "rising_or_max_phase",
+   "n": 358,
+   "skill_vs_climatology_analogue": -0.042,
+   "skill_vs_climatology_recurrence": -0.24,
+   "skill_vs_climatology_blend": -0.059,
+   "MAE_climatology_logAp": 0.531
+  }
+ ],
+ "recurrence_by_driver": {
+  "base_rate_any_G1_day_in_a_5day_window_pct": 40.2,
+  "icme_driven": {
+   "n": 329,
+   "pct_G1_storm_again_25_29_days_later": 49.8,
+   "declining_phase_pct": 54.0
+  },
+  "not_icme": {
+   "n": 601,
+   "pct_G1_storm_again_25_29_days_later": 63.9,
+   "declining_phase_pct": 69.1
+  },
+  "donki_linked_HSS_only": {
+   "n": 61,
+   "pct_G1_storm_again_25_29_days_later": 67.2
+  },
+  "donki_linked_CME": {
+   "n": 95,
+   "pct_G1_storm_again_25_29_days_later": 49.5
+  }
+ },
+ "hp30_vs_kp": [
+  {
+   "storm": "Halloween2003",
+   "max_Hp30": 12.0,
+   "max_Hp30_time": "2003-10-29 06:30",
+   "max_Kp": "9o",
+   "G1_first_known_Hp30": "2003-10-28 05:00",
+   "G1_first_known_Kp": "2003-10-28 06:00",
+   "G1_lead_hours_Hp30_over_Kp": 1.0,
+   "G3_first_known_Hp30": "2003-10-29 05:30",
+   "G3_first_known_Kp": "2003-10-29 09:00",
+   "G3_lead_hours_Hp30_over_Kp": 3.5
+  },
+  {
+   "storm": "StPatricks2015",
+   "max_Hp30": 8.667,
+   "max_Hp30_time": "2015-03-17 13:30",
+   "max_Kp": "8-",
+   "G1_first_known_Hp30": "2015-03-17 05:00",
+   "G1_first_known_Kp": "2015-03-17 06:00",
+   "G1_lead_hours_Hp30_over_Kp": 1.0,
+   "G3_first_known_Hp30": "2015-03-17 09:30",
+   "G3_first_known_Kp": "2015-03-17 15:00",
+   "G3_lead_hours_Hp30_over_Kp": 5.5
+  },
+  {
+   "storm": "Sep2017",
+   "max_Hp30": 9.0,
+   "max_Hp30_time": "2017-09-08 14:00",
+   "max_Kp": "8+",
+   "G1_first_known_Hp30": "2017-09-07 00:00",
+   "G1_first_known_Kp": "2017-09-08 00:00",
+   "G1_lead_hours_Hp30_over_Kp": 24.0,
+   "G3_first_known_Hp30": "2017-09-07 23:30",
+   "G3_first_known_Kp": "2017-09-08 00:00",
+   "G3_lead_hours_Hp30_over_Kp": 0.5
+  },
+  {
+   "storm": "Oct2024",
+   "max_Hp30": 10.667,
+   "max_Hp30_time": "2024-10-10 23:30",
+   "max_Kp": "9-",
+   "G1_first_known_Hp30": "2024-10-09 00:30",
+   "G1_first_known_Kp": "2024-10-10 18:00",
+   "G1_lead_hours_Hp30_over_Kp": 41.5,
+   "G3_first_known_Hp30": "2024-10-10 15:30",
+   "G3_first_known_Kp": "2024-10-10 18:00",
+   "G3_lead_hours_Hp30_over_Kp": 2.5
+  },
+  {
+   "storm": "KpSumTop2_2025-11-12",
+   "max_Hp30": 9.333,
+   "max_Hp30_time": "2025-11-12 03:00",
+   "max_Kp": "9-",
+   "G1_first_known_Hp30": "2025-11-12 00:30",
+   "G1_first_known_Kp": "2025-11-12 03:00",
+   "G1_lead_hours_Hp30_over_Kp": 2.5,
+   "G3_first_known_Hp30": "2025-11-12 00:30",
+   "G3_first_known_Kp": "2025-11-12 03:00",
+   "G3_lead_hours_Hp30_over_Kp": 2.5
+  },
+  {
+   "storm": "KpSumTop1_2026-01-20",
+   "max_Hp30": 10.0,
+   "max_Hp30_time": "2026-01-19 21:00",
+   "max_Kp": "9-",
+   "G1_first_known_Hp30": "2026-01-19 18:30",
+   "G1_first_known_Kp": "2026-01-19 21:00",
+   "G1_lead_hours_Hp30_over_Kp": 2.5,
+   "G3_first_known_Hp30": "2026-01-19 19:30",
+   "G3_first_known_Kp": "2026-01-19 21:00",
+   "G3_lead_hours_Hp30_over_Kp": 1.5
+  },
+  {
+   "storm": "Gannon2024",
+   "max_Hp30": 11.333,
+   "max_Hp30_time": "2024-05-10 22:30",
+   "max_Kp": "9o",
+   "G1_first_known_Hp30": "2024-05-10 15:00",
+   "G1_first_known_Kp": "2024-05-10 18:00",
+   "G1_lead_hours_Hp30_over_Kp": 3.0,
+   "G3_first_known_Hp30": "2024-05-10 17:00",
+   "G3_first_known_Kp": "2024-05-10 18:00",
+   "G3_lead_hours_Hp30_over_Kp": 1.0
+  }
+ ],
+ "gannon_card": {
+  "moment": "2024-05-10/11 geomagnetic storm ('Gannon')",
+  "series_evidence": {
+   "Kp_max": "9o",
+   "Hp30_max": 11.333,
+   "daily_Ap_2024-05-11": 271,
+   "rank_of_2024-05-11_by_daily_Ap_since_1957": 2,
+   "OMNI_min_Bz_nT": -35.3,
+   "OMNI_min_Bz_time": "2024-05-11 00:30",
+   "OMNI_max_speed_km_s": 1006.0,
+   "OMNI_min_Dst_nT": -406.0,
+   "OMNI_min_Dst_time": "2024-05-11 02:30",
+   "OMNI_max_AE_nT": 1966.0,
+   "Belsk_H_step_at_SSC_nT": 125.9,
+   "Belsk_min_H_nT": 18211.0,
+   "Belsk_min_H_time": "2024-05-10 22:16",
+   "Belsk_H_range_nT": 1139.0,
+   "Belsk_max_1min_dH_nT": 248.5,
+   "Belsk_max_1min_dH_time": "2024-05-10 22:37",
+   "Wikipedia_Aurora_en_views_2024-05-11": 341117,
+   "Wikipedia_Zorza_polarna_pl_views_2024-05-11": 20795,
+   "Wikipedia_Zorza_polarna_pl_median_daily_views_Apr_2024": 195.0,
+   "Belsk_H_17:05_17:06_17:07_17:08": [
+    19027.9,
+    19021.1,
+    19121.2,
+    19229.1
+   ]
+  },
+  "catalogue_evidence": {
+   "DONKI_GST": [
+    {
+     "gst_id": "2024-05-10T15:00:00-GST-001",
+     "kp_max": 9.0
+    },
+    {
+     "gst_id": "2024-05-12T21:00:00-GST-001",
+     "kp_max": 6.33
+    }
+   ],
+   "DONKI_linked_CMEs": [
+    {
+     "activity_id": "2024-05-08T05:36:00-CME-001",
+     "speed_kms": 870,
+     "source_location": "S22W10",
+     "active_region_num": 13664.0,
+     "type": "C"
+    },
+    {
+     "activity_id": "2024-05-08T12:24:00-CME-001",
+     "speed_kms": 776,
+     "source_location": "S20W11",
+     "active_region_num": 13664.0,
+     "type": "C"
+    },
+    {
+     "activity_id": "2024-05-08T19:12:00-CME-001",
+     "speed_kms": 828,
+     "source_location": "N10E20",
+     "active_region_num": 13667.0,
+     "type": "C"
+    },
+    {
+     "activity_id": "2024-05-08T22:24:00-CME-001",
+     "speed_kms": 1257,
+     "source_location": "S20W17",
+     "active_region_num": 13664.0,
+     "type": "O"
+    },
+    {
+     "activity_id": "2024-05-09T09:24:00-CME-001",
+     "speed_kms": 1330,
+     "source_location": "S20W25",
+     "active_region_num": 13664.0,
+     "type": "O"
+    },
+    {
+     "activity_id": "2024-05-10T07:12:00-CME-001",
+     "speed_kms": 1018,
+     "source_location": "S18W37",
+     "active_region_num": 13664.0,
+     "type": "O"
+    }
+   ],
+   "DONKI_IPS_at_Earth": [
+    "2024-05-10T16:36Z",
+    "2024-05-11T09:30Z",
+    "2024-05-11T20:30Z",
+    "2024-05-12T08:55Z"
+   ],
+   "RichardsonCane_ICME": [
+    {
+     "disturbance_time": "2024-05-10 17:05:00",
+     "icme_start": "2024-05-10 20:00:00",
+     "icme_end": "2024-05-12 15:00:00",
+     "dst_min_nT": "-406",
+     "v_icme": "800",
+     "lasco_cme": "2024/05/07 0312 D, 0524 D, 2024/05/08 0536 HD, 1224 HD, 1912 D, 2224 HD, 2024/05/09 0924 HD, 1823 HD"
+    },
+    {
+     "disturbance_time": "2024-05-12 09:17:00",
+     "icme_start": "2024-05-12 21:00:00",
+     "icme_end": "2024-05-14 06:00:00",
+     "dst_min_nT": "...",
+     "v_icme": "660",
+     "lasco_cme": "2024/05/10 0712 HD, 2128 D, 2313 D, 2024/05/11 0136 HD, 0312 D"
+    }
+   ],
+   "SSC_Ebre_ISGI": [
+    {
+     "datetime_utc": "2024-05-10 17:05",
+     "type": "SSC",
+     "amplitude_nT": NaN
+    }
+   ],
+   "NOAA_SEP_events": [
+    {
+     "start_time": "2024-05-10 13:35",
+     "max_time": "2024-05-10 17:45",
+     "peak_pfu_gt10MeV": "208",
+     "flare_importance": "X3.9",
+     "location": "S17W36"
+    },
+    {
+     "start_time": "2024-05-11 02:10",
+     "max_time": "2024-05-11 09:10",
+     "peak_pfu_gt10MeV": "116",
+     "flare_importance": "X5.8",
+     "location": "S17W44"
+    }
+   ]
+  }
+ },
+ "recent_cards": {
+  "Nov 2025 storm": {
+   "window": "2025-11-10 to 2025-11-15",
+   "Kp_max": "9-",
+   "max_daily_Ap": 137,
+   "max_daily_Ap_date": "2025-11-12",
+   "rank_of_that_day_by_Ap_since_1957": 38,
+   "DONKI_GST": [
+    {
+     "gst_id": "2025-11-12T00:00:00-GST-001",
+     "kp_max": 8.67
+    },
+    {
+     "gst_id": "2025-11-12T18:00:00-GST-001",
+     "kp_max": 7.33
+    }
+   ],
+   "DONKI_linked_CMEs": [
+    {
+     "activity_id": "2025-11-07T12:53:00-CME-001",
+     "speed_kms": 261,
+     "source_location": "N35E30",
+     "active_region_num": NaN,
+     "type": "S"
+    },
+    {
+     "activity_id": "2025-11-09T07:24:00-CME-001",
+     "speed_kms": 734,
+     "source_location": "N27E03",
+     "active_region_num": 14274.0,
+     "type": "C"
+    },
+    {
+     "activity_id": "2025-11-10T09:36:00-CME-001",
+     "speed_kms": 1196,
+     "source_location": "N25W16",
+     "active_region_num": 14274.0,
+     "type": "O"
+    },
+    {
+     "activity_id": "2025-11-10T13:08:00-CME-001",
+     "speed_kms": 630,
+     "source_location": "N25W18",
+     "active_region_num": 14274.0,
+     "type": "C"
+    },
+    {
+     "activity_id": "2025-11-11T10:23:00-CME-001",
+     "speed_kms": 1856,
+     "source_location": "N27W27",
+     "active_region_num": 14274.0,
+     "type": "O"
+    }
+   ],
+   "DONKI_IPS_at_Earth": [
+    "2025-11-11T22:11Z",
+    "2025-11-12T18:52Z"
+   ],
+   "RichardsonCane_ICME": [
+    {
+     "disturbance_time": "2025-11-10 13:00:00",
+     "icme_start": "2025-11-10 18:00:00",
+     "icme_end": "2025-11-12 00:00:00",
+     "dst_min_nT": "-16",
+     "dst_flag": "P",
+     "v_icme": "450"
+    },
+    {
+     "disturbance_time": "2025-11-12 00:09:00",
+     "icme_start": "2025-11-12 03:00:00",
+     "icme_end": "2025-11-13 00:00:00",
+     "dst_min_nT": "-217",
+     "dst_flag": "P",
+     "v_icme": "760"
+    },
+    {
+     "disturbance_time": "2025-11-12 19:17:00",
+     "icme_start": "2025-11-13 03:00:00",
+     "icme_end": "2025-11-15 02:00:00",
+     "dst_min_nT": "-143",
+     "dst_flag": "P",
+     "v_icme": "690"
+    }
+   ],
+   "SSC_Ebre_ISGI": [
+    {
+     "datetime_utc": "2025-11-11 22:52",
+     "type": "SSC",
+     "status": "preliminary"
+    },
+    {
+     "datetime_utc": "2025-11-12 00:09",
+     "type": "SSC",
+     "status": "preliminary"
+    },
+    {
+     "datetime_utc": "2025-11-13 14:02",
+     "type": "SSC",
+     "status": "preliminary"
+    }
+   ],
+   "NOAA_SEP_events_from_3_days_before": [
+    {
+     "start_time": "2025-11-10 11:25",
+     "max_time": "2025-11-10 15:00",
+     "peak_pfu_gt10MeV": "30",
+     "flare_importance": "X1.2/2B",
+     "location": "N24W14"
+    },
+    {
+     "start_time": "2025-11-11 09:45",
+     "max_time": "2025-11-12 02:15",
+     "peak_pfu_gt10MeV": "1460",
+     "flare_importance": "X5.1/3B",
+     "location": "N24W28"
+    },
+    {
+     "start_time": "2025-11-14 09:20",
+     "max_time": "2025-11-14 09:50",
+     "peak_pfu_gt10MeV": "16",
+     "flare_importance": "X4.0/3B",
+     "location": "N22W61"
+    }
+   ]
+  },
+  "Jan 2026 storm": {
+   "window": "2026-01-18 to 2026-01-23",
+   "Kp_max": "9-",
+   "max_daily_Ap": 144,
+   "max_daily_Ap_date": "2026-01-20",
+   "rank_of_that_day_by_Ap_since_1957": 32,
+   "DONKI_GST": [
+    {
+     "gst_id": "2026-01-19T18:00:00-GST-001",
+     "kp_max": 8.67
+    }
+   ],
+   "DONKI_linked_CMEs": [
+    {
+     "activity_id": "2026-01-18T18:09:00-CME-001",
+     "speed_kms": 1820,
+     "source_location": "S15E20",
+     "active_region_num": 14341.0,
+     "type": "O"
+    }
+   ],
+   "DONKI_IPS_at_Earth": [
+    "2026-01-19T18:55Z"
+   ],
+   "RichardsonCane_ICME": [
+    {
+     "disturbance_time": "2026-01-19 19:17:00",
+     "icme_start": "2026-01-19 21:00:00",
+     "icme_end": "2026-01-22 16:00:00",
+     "dst_min_nT": "-236",
+     "dst_flag": "P",
+     "v_icme": "740"
+    }
+   ],
+   "SSC_Ebre_ISGI": [
+    {
+     "datetime_utc": "2026-01-19 19:17",
+     "type": "SSC",
+     "status": "preliminary"
+    }
+   ],
+   "NOAA_SEP_events_from_3_days_before": [
+    {
+     "start_time": "2026-01-18 22:55",
+     "max_time": "2026-01-19 19:15",
+     "peak_pfu_gt10MeV": "37000",
+     "flare_importance": "X1.9/3B",
+     "location": "S11E24"
+    }
+   ]
+  }
+ }
+}

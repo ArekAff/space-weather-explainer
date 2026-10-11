@@ -1,0 +1,4 @@
+subset,n,skill_vs_climatology_analogue,skill_vs_climatology_recurrence,skill_vs_climatology_blend,MAE_climatology_logAp
+all,835,0.003,-0.14,0.014,0.554
+declining_phase,477,0.035,-0.071,0.064,0.571
+rising_or_max_phase,358,-0.042,-0.24,-0.059,0.531

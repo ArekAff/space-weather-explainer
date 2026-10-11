@@ -1,0 +1,25 @@
+[project]
+name = "swx-workspace"
+version = "0.1.0"
+description = "uv workspace root for the thesis code (ingestion and platform)"
+requires-python = ">=3.14,<3.15"
+dependencies = ["swx-ingest"]
+
+[tool.uv]
+package = false
+
+[tool.uv.workspace]
+members = ["ingestion"]
+
+[tool.uv.sources]
+swx-ingest = { workspace = true }
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py314"
+
+[tool.pytest.ini_options]
+testpaths = ["ingestion/tests"]

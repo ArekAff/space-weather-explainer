@@ -1,0 +1,177 @@
+{
+  "Nov 2025 storm": {
+    "window": "2025-11-10 to 2025-11-15",
+    "Kp_max": "9-",
+    "max_daily_Ap": 137,
+    "max_daily_Ap_date": "2025-11-12",
+    "rank_of_that_day_by_Ap_since_1957": 38,
+    "DONKI_GST": [
+      {
+        "gst_id": "2025-11-12T00:00:00-GST-001",
+        "kp_max": 8.67
+      },
+      {
+        "gst_id": "2025-11-12T18:00:00-GST-001",
+        "kp_max": 7.33
+      }
+    ],
+    "DONKI_linked_CMEs": [
+      {
+        "activity_id": "2025-11-07T12:53:00-CME-001",
+        "speed_kms": 261,
+        "source_location": "N35E30",
+        "active_region_num": NaN,
+        "type": "S"
+      },
+      {
+        "activity_id": "2025-11-09T07:24:00-CME-001",
+        "speed_kms": 734,
+        "source_location": "N27E03",
+        "active_region_num": 14274.0,
+        "type": "C"
+      },
+      {
+        "activity_id": "2025-11-10T09:36:00-CME-001",
+        "speed_kms": 1196,
+        "source_location": "N25W16",
+        "active_region_num": 14274.0,
+        "type": "O"
+      },
+      {
+        "activity_id": "2025-11-10T13:08:00-CME-001",
+        "speed_kms": 630,
+        "source_location": "N25W18",
+        "active_region_num": 14274.0,
+        "type": "C"
+      },
+      {
+        "activity_id": "2025-11-11T10:23:00-CME-001",
+        "speed_kms": 1856,
+        "source_location": "N27W27",
+        "active_region_num": 14274.0,
+        "type": "O"
+      }
+    ],
+    "DONKI_IPS_at_Earth": [
+      "2025-11-11T22:11Z",
+      "2025-11-12T18:52Z"
+    ],
+    "RichardsonCane_ICME": [
+      {
+        "disturbance_time": "2025-11-10 13:00:00",
+        "icme_start": "2025-11-10 18:00:00",
+        "icme_end": "2025-11-12 00:00:00",
+        "dst_min_nT": "-16",
+        "dst_flag": "P",
+        "v_icme": "450"
+      },
+      {
+        "disturbance_time": "2025-11-12 00:09:00",
+        "icme_start": "2025-11-12 03:00:00",
+        "icme_end": "2025-11-13 00:00:00",
+        "dst_min_nT": "-217",
+        "dst_flag": "P",
+        "v_icme": "760"
+      },
+      {
+        "disturbance_time": "2025-11-12 19:17:00",
+        "icme_start": "2025-11-13 03:00:00",
+        "icme_end": "2025-11-15 02:00:00",
+        "dst_min_nT": "-143",
+        "dst_flag": "P",
+        "v_icme": "690"
+      }
+    ],
+    "SSC_Ebre_ISGI": [
+      {
+        "datetime_utc": "2025-11-11 22:52",
+        "type": "SSC",
+        "status": "preliminary"
+      },
+      {
+        "datetime_utc": "2025-11-12 00:09",
+        "type": "SSC",
+        "status": "preliminary"
+      },
+      {
+        "datetime_utc": "2025-11-13 14:02",
+        "type": "SSC",
+        "status": "preliminary"
+      }
+    ],
+    "NOAA_SEP_events_from_3_days_before": [
+      {
+        "start_time": "2025-11-10 11:25",
+        "max_time": "2025-11-10 15:00",
+        "peak_pfu_gt10MeV": "30",
+        "flare_importance": "X1.2/2B",
+        "location": "N24W14"
+      },
+      {
+        "start_time": "2025-11-11 09:45",
+        "max_time": "2025-11-12 02:15",
+        "peak_pfu_gt10MeV": "1460",
+        "flare_importance": "X5.1/3B",
+        "location": "N24W28"
+      },
+      {
+        "start_time": "2025-11-14 09:20",
+        "max_time": "2025-11-14 09:50",
+        "peak_pfu_gt10MeV": "16",
+        "flare_importance": "X4.0/3B",
+        "location": "N22W61"
+      }
+    ]
+  },
+  "Jan 2026 storm": {
+    "window": "2026-01-18 to 2026-01-23",
+    "Kp_max": "9-",
+    "max_daily_Ap": 144,
+    "max_daily_Ap_date": "2026-01-20",
+    "rank_of_that_day_by_Ap_since_1957": 32,
+    "DONKI_GST": [
+      {
+        "gst_id": "2026-01-19T18:00:00-GST-001",
+        "kp_max": 8.67
+      }
+    ],
+    "DONKI_linked_CMEs": [
+      {
+        "activity_id": "2026-01-18T18:09:00-CME-001",
+        "speed_kms": 1820,
+        "source_location": "S15E20",
+        "active_region_num": 14341.0,
+        "type": "O"
+      }
+    ],
+    "DONKI_IPS_at_Earth": [
+      "2026-01-19T18:55Z"
+    ],
+    "RichardsonCane_ICME": [
+      {
+        "disturbance_time": "2026-01-19 19:17:00",
+        "icme_start": "2026-01-19 21:00:00",
+        "icme_end": "2026-01-22 16:00:00",
+        "dst_min_nT": "-236",
+        "dst_flag": "P",
+        "v_icme": "740"
+      }
+    ],
+    "SSC_Ebre_ISGI": [
+      {
+        "datetime_utc": "2026-01-19 19:17",
+        "type": "SSC",
+        "status": "preliminary"
+      }
+    ],
+    "NOAA_SEP_events_from_3_days_before": [
+      {
+        "start_time": "2026-01-18 22:55",
+        "max_time": "2026-01-19 19:15",
+        "peak_pfu_gt10MeV": "37000",
+        "flare_importance": "X1.9/3B",
+        "location": "S11E24"
+      }
+    ]
+  }
+}

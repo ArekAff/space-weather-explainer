@@ -1,0 +1,6 @@
+level,noaa_events_per_cycle,noaa_days_per_cycle,data_3h_intervals_per_cycle,data_days_with_level_per_cycle,data_days_peaking_at_level_per_cycle,data_storm_events_peaking_at_level_per_cycle,data_days_with_level_per_cycle_1957_2008,data_3h_intervals_per_cycle_1957_2008
+G1,1700,900,1356,743,497,263.3,859,1586
+G2,600,360,453,286,204,118.2,338,538
+G3,200,130,161,100,72,47.0,122,196
+G4,100,60,75,39,36,26.3,47,91
+G5,4,4,4,3,3,2.4,4,4
