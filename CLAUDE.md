@@ -30,7 +30,8 @@ Invariants. Breaking one silently invalidates the thesis:
    time counts, not the period described. Date-only timestamps count as 23:59 UTC. This applies to catalogues in B
    and C too (DONKI `submissionTime`), not only to RAG.
 4. **DONKI notes before 06/2020 were added retroactively**: mark `is_retrospective = true`; excluded in the main mode.
-5. **DEV/TEST split.** TEST = events from 2025-01-01 (43 of 131). Tune prompts, thresholds and retrieval on DEV only;
+5. **DEV/TEST split.** TEST = events from 2025-01-01, except the May 2026 rtgms.pl jamming episodes (J132–J139),
+   which are DEV (61 of 157 in TEST, 96 in DEV). Tune prompts, thresholds and retrieval on DEV only;
    run TEST once at the end. Report C separately per corpus period (before 06/2020, to 02/2024, from 03/2024) and for
    events after the LLM's training cut-off.
 6. **Provenance on every value**: `source`, `status` (`realtime`/`pre`/`def`/`provisional`), `retrieved_at`. Raw
