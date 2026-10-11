@@ -28,7 +28,7 @@ answer. Grouped by where the answer will come from.
 
 - Data freeze date (default 2026-12-31).
 - E-mail to CCMC about using DONKI for validation (recommended by CCMC policy).
-- E-mail to GUGiK / IŁ-PIB asking for the RTGMS interference archive.
+- E-mail to GUGiK / IŁ-PIB only if the rtgms.pl web archive (`/monitoring-medium`, `/monitoring-low`) is not enough or cannot be exported.
 
 ## Evaluation event set: known gaps
 
