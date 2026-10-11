@@ -621,7 +621,7 @@ def _setup_logging(root: Path, verbose: bool) -> None:
 def main(argv: list[str] | None = None) -> int:
     """Entry point `swx-noaa-live`: one collection run. Exit code 1 if any fetch or parse failed."""
     ap = argparse.ArgumentParser(description="Fetch and archive NOAA SWPC live products once.")
-    ap.add_argument("--data-dir", type=Path, help="override MAGISTERKA_DATA_DIR")
+    ap.add_argument("--data-dir", type=Path, help="override SWX_DATA_DIR")
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args(argv)
     root = args.data_dir.resolve() if args.data_dir else data_dir()

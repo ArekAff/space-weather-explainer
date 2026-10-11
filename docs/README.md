@@ -1,6 +1,6 @@
 # docs/: reference documents for the thesis and for agents
 
-Most files were copied on 2026-10-11 from the shared folder of the "Magisterka" Claude project, which agents on this
+Most files were copied on 2026-10-11 from the shared folder of the thesis Claude project, which agents on this
 laptop cannot reach. Folder names match that shared folder, so the relative links inside the documents still work.
 Originals are in Polish unless noted. Later corrections live in `decisions.md`, which wins over any older document.
 

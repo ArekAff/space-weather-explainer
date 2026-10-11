@@ -1,4 +1,4 @@
-# Magisterka: real-time space-weather platform with cited, expert-grounded explanations
+# space-weather-explainer: real-time space-weather platform with cited, expert-grounded explanations
 
 SGH master's thesis (Analiza danych – Big Data) by Arek (Arkadiusz Affek), advisor Prof. Surma.
 Working title (PL): „Platforma analizy szeregów czasowych w czasie rzeczywistym z objaśnieniami opartymi na wiedzy
@@ -82,7 +82,7 @@ climatology by onset level (Brier skill 0.095); adding a shock flag gives 0.131.
   environment variables. Space-Track data may not be redistributed: keep raw TLEs out of anything shared.
 - **Python 3.14 only**, enforced through `.python-version` and `requires-python` (details in `code/CLAUDE.md`).
 - **Machine.** Windows laptop, repo inside OneDrive. Use `pathlib`, no hard-coded separators. Long-running jobs run
-  via Windows Task Scheduler. If OneDrive sync interferes with data files, point `MAGISTERKA_DATA_DIR` at a
+  via Windows Task Scheduler. If OneDrive sync interferes with data files, point `SWX_DATA_DIR` at a
   non-synced folder (see `code/CLAUDE.md`).
 
 ## Keeping these instruction files current

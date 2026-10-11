@@ -37,3 +37,8 @@ an earlier one and over any snapshot document in `docs/`. Only Arek decides; age
   numpy, pandas, pyarrow, duckdb, scipy, scikit-learn and torch. Enforced with `.python-version` = `3.14` and
   `requires-python = ">=3.14,<3.15"` in every `pyproject.toml`. Revisit 3.15 after the thesis data freeze, not before.
   Affects: `.python-version`, `pyproject.toml`, `CLAUDE.md`, `code/CLAUDE.md`.
+- **Project name is `space-weather-explainer` everywhere (Arek).** GitHub repo `ArekAff/space-weather-explainer`
+  (private); a fresh clone gets that folder name, so tracked files must not say "magisterka". The data-dir env var
+  is now `SWX_DATA_DIR` (was `MAGISTERKA_DATA_DIR`) and the scheduled task lives under `\space-weather-explainer\`.
+  The local working folder on Arek's laptop may keep its old name. Affects: `pyproject.toml`, `CLAUDE.md`,
+  `code/CLAUDE.md`, `code/ingestion` (store, collector, register script), `docs/claude_md_guide.md`.

@@ -30,7 +30,7 @@ import requests
 OUT = Path("downloads")
 OUT.mkdir(exist_ok=True)
 # Wikimedia asks for a descriptive User-Agent with contact details. Put your own e-mail here.
-HEADERS = {"User-Agent": "magisterka-ts-research/0.1 (contact: SET-YOUR-EMAIL)"}
+HEADERS = {"User-Agent": "space-weather-explainer-research/0.1 (contact: SET-YOUR-EMAIL)"}
 
 
 def _get(url, **kw):

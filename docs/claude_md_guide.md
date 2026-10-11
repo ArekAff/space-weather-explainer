@@ -6,7 +6,7 @@ For Arek and for any agent that edits a CLAUDE.md. Based on Anthropic's Claude C
 ## How Claude Code loads them
 
 - `CLAUDE.md` files in the directory where a session starts, and in every directory above it, load at launch.
-  Start sessions at the repo root (`magisterka/`) so the root file always loads.
+  Start sessions at the repo root (`space-weather-explainer/` in a fresh clone) so the root file always loads.
 - A `CLAUDE.md` in a subdirectory loads on demand, the first time the agent reads or edits a file in that
   subdirectory. So `code/ingestion/CLAUDE.md` costs nothing while the agent works on the platform.
 - Files are concatenated, not overridden. Instructions that contradict each other make the agent pick one arbitrarily,

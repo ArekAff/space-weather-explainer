@@ -31,8 +31,8 @@ MANIFEST_COLUMNS = [
 
 
 def data_dir() -> Path:
-    """Root of the data store: `MAGISTERKA_DATA_DIR`, else `<repo>/data/`."""
-    env = os.environ.get("MAGISTERKA_DATA_DIR")
+    """Root of the data store: `SWX_DATA_DIR`, else `<repo>/data/`."""
+    env = os.environ.get("SWX_DATA_DIR")
     if env:
         return Path(env).expanduser().resolve()
     # store.py -> swx_ingest -> src -> ingestion -> code -> <repo>

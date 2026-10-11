@@ -47,7 +47,7 @@ code/
 
 ## Data store (the contract between the two parts)
 
-Root directory: env var `MAGISTERKA_DATA_DIR`, default `<repo>/data/` (git-ignored). Layout:
+Root directory: env var `SWX_DATA_DIR`, default `<repo>/data/` (git-ignored). Layout:
 
 | Path | Written by | Read by | Content |
 |---|---|---|---|
