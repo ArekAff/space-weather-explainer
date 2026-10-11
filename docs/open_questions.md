@@ -12,7 +12,6 @@ answer. Grouped by where the answer will come from.
 - Is pre-1996 RSGA only scanned PDF (needs OCR)? Test a sample.
 - Does IGS publish ROTI maps for Europe on CDDIS, or must ROTI be computed from TEC or RINEX? Check after creating the
   Earthdata account.
-- Every NOAA live endpoint in `data_gathering_plan.md` is untested.
 
 ## Arek decides
 

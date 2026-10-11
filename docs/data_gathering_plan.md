@@ -100,9 +100,9 @@ Rows and coverage are from the first run.
 Archiving rules:
 1. Save every response unchanged (raw, compressed) with the UTC fetch time in the name and its SHA-256. If the hash
    equals the previous one, write only a log entry.
-2. Build a separate normalised table: one row per timestamp and quantity, columns `time_tag`, `fetched_at`,
-   `source_file`, `spacecraft` (DSCOVR or ACE, from the RTSW source field), `status = realtime`. Unique key
-   `time_tag` + quantity + file; a newer fetch of the same timestamp adds a version and never overwrites.
+2. Build a separate normalised table per product family (`normalized/noaa_swpc_<dataset>/YYYY-MM.parquet`), one row
+   per (`time_utc`, quantity, `qualifier`, `version`) with `retrieved_at`, `source_file`, `spacecraft` (RTSW source
+   field) and `status = realtime`. A newer fetch adds a version only when the value changed and never overwrites.
 3. For texts, store the issue time from the header (`:Issued:`) and the fetch time.
 4. Keep a gap log: every failed fetch and every interval without data. Once a day compare the archive with the 7-day
    files and backfill missing minutes.

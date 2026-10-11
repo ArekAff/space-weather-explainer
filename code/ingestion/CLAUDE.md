@@ -19,6 +19,23 @@ the request patterns from there; do not copy those files into the store without 
 5. Answer key: Richardson–Cane, SSC, NOAA 3-day forecasts, IGS TEC (final), Space-Track history, jamming cases.
 6. Freeze job: re-pull all catalogues, write `freeze/<date>/` with a manifest.
 
+## Status (checked 2026-10-11 20:42 UTC)
+
+Update this section whenever a build-order step starts or finishes, or the collector's health changes.
+- Step 1 done: `sources/noaa_swpc.py` plus 18 unit tests (tests not re-run in this check). Store contents verified:
+  8 normalised tables, all `status = realtime`, all required provenance columns present; 49 raw files in
+  `raw/manifest.parquet`; 3 text issues indexed (3-day forecast and discussion issued 2026-10-11 12:30 UTC).
+  Coverage starts: solar_wind, kp_3h and GOES protons 2026-10-04 (7-day backfill), ACE 1h 2026-09-11,
+  RTSW 2026-10-10 17:38, kp_1m 2026-10-11 11:39. Gap log holds only source-side `no_data` intervals and the two
+  404s from the retired `products/solar-wind/*` files.
+- Scheduler not yet confirmed: the log shows manual runs 17:40–17:47 and 20:22–20:35 UTC (none in between) and one
+  run at 20:37 UTC, which matches the 30-min task slots (:07 and :37 local time). Confirm with steady runs in
+  `data/logs/noaa_live.log`; if they stop after a day, check the trigger's repetition duration.
+- Deliberate deviation from the Polish plan: one 30-min cadence for all products instead of 5 min for wind and alerts.
+  No data is lost because every short file covers more than 30 min.
+- Steps 2–6 not started: `noaa_swpc.py` is the only source module. Next: step 2 (GFZ, Hp30, OMNI2).
+- Data store is inside OneDrive (`<repo>/data`, 3.6 MB so far). Move `SWX_DATA_DIR` out if sync locks files.
+
 ## NOAA collector rules
 
 Endpoints are the `PRODUCTS` list in `sources/noaa_swpc.py`; tested results are in `docs/data_gathering_plan.md`.

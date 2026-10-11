@@ -43,6 +43,8 @@ without it is lost for good). NOAA Forecast Discussion exists only from 03/2024.
 (5- = 4.67, 5o = 5.00, 5+ = 5.33); G1..G5 = Kp 5..9. NOAA Kp and GFZ Kp disagree at thresholds; store which one.
 Kp saturates at 9o, so rank extremes with Hp30. GFZ revises preliminary values monthly.
 
+Implementation status: `code/ingestion/CLAUDE.md` (Status section); collection checklist: `docs/data_gathering_plan.md`.
+
 Full rationale: `docs/README.md` (index), decisions in `docs/decisions.md`, unresolved items in `docs/open_questions.md`.
 
 ## Repository map
