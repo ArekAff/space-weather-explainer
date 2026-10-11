@@ -29,9 +29,8 @@ Update this section whenever a build-order step starts or finishes, or the colle
   Coverage starts: solar_wind, kp_3h and GOES protons 2026-10-04 (7-day backfill), ACE 1h 2026-09-11,
   RTSW 2026-10-10 17:38, kp_1m 2026-10-11 11:39. Gap log holds only source-side `no_data` intervals and the two
   404s from the retired `products/solar-wind/*` files.
-- Scheduler not yet confirmed: the log shows manual runs 17:40–17:47 and 20:22–20:35 UTC (none in between) and one
-  run at 20:37 UTC, which matches the 30-min task slots (:07 and :37 local time). Confirm with steady runs in
-  `data/logs/noaa_live.log`; if they stop after a day, check the trigger's repetition duration.
+- Scheduler confirmed 2026-10-11 22:01 UTC: task runs at :07 and :37 (20:37, 21:07, 21:37 UTC), 0 failed fetches,
+  no new gap-log entries since the first runs. Re-check after a day that runs continue past midnight.
 - Deliberate deviation from the Polish plan: one 30-min cadence for all products instead of 5 min for wind and alerts.
   No data is lost because every short file covers more than 30 min.
 - Steps 2–6 not started: `noaa_swpc.py` is the only source module. Next: step 2 (GFZ, Hp30, OMNI2).
