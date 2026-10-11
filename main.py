@@ -1,5 +1,5 @@
 def main():
-    print("Hello from magisterka!")
+    print("Hello from space-weather-explainer!")
 
 
 if __name__ == "__main__":

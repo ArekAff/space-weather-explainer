@@ -1,7 +1,7 @@
 [project]
-name = "magisterka"
+name = "space-weather-explainer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Real-time space-weather anomaly explanations grounded in catalogues and cited expert texts (RAG), for GNSS and satellite users. SGH master's thesis."
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = []
