@@ -72,6 +72,7 @@ Only NASA Earthdata (TEC on CDDIS) and Space-Track (historical orbits) need acco
 | IGS TEC maps (IONEX) | Effect on GNSS | Test-storm windows ±3 days plus quiet days, 2010 – freeze | CDDIS, Earthdata account | All | Use final product (~2 weeks delay), not rapid |
 | Starlink orbits | Effect on satellites: faster decay | 01–03/2022, 04–06/2024, plus G3+ storms since 2020 | Space-Track `gp_history`, account; no redistribution. CelesTrak SupGP is current only | All | Elements get overwritten; take history from Space-Track |
 | Jamming cases (GUGiK, rtgms.pl) | Counter-examples "not space weather" | 2024 – freeze | Manual from geoportal.gov.pl; e-mail GUGiK / IŁ-PIB for RTGMS data | All | n/a |
+| ASG-EUPOS RINEX (Polish stations) | Effect on GNSS in Poland: ROTI and position error during G3+ storms; C/N0 and observation-count drops on jamming days, cross-checked with rtgms.pl | G3+ storm windows and jamming days from the event set; archive depth untested | https://system.asgeupos.pl/; whether downloads need an account is untested | All (added 2026-10-11 with Arek's OK) | Raw observations, no versions; results depend on own RINEX processing |
 
 Optional: Belsk (local storm picture, BGS HAPI, test-storm windows) and EPN observations (own RINEX processing, a lot
 of work). Neither is in the final advisor e-mail.
@@ -154,6 +155,7 @@ Answer key
 - [ ] IGS TEC maps (final) for test-storm windows and quiet days
 - [ ] Space-Track Starlink element history for 2022, 2024 and G3+ storms since 2020
 - [ ] Jamming cases from geoportal.gov.pl and rtgms.pl
+- [ ] ASG-EUPOS RINEX for G3+ storm windows and jamming days; first check account requirement and archive depth
 
 At the end
 - [ ] On the freeze date re-pull GFZ, DONKI, Richardson–Cane, SSC and the SEP list; write manifests with SHA-256

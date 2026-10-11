@@ -16,7 +16,8 @@ the request patterns from there; do not copy those files into the store without 
 2. Historical series: GFZ Kp/ap/Ap since 1932 with status, full Hp30, OMNI2 hourly since 1963.
 3. DONKI events (CME, FLR, SEP, HSS, MPC, IPS, GST) as raw JSON, in windows of at most 60 days.
 4. Corpus: NOAA SWPC texts from the NCEI archive, DONKI notifications and notes, open review papers.
-5. Answer key: Richardson–Cane, SSC, NOAA 3-day forecasts, IGS TEC (final), Space-Track history, jamming cases.
+5. Answer key: Richardson–Cane, SSC, NOAA 3-day forecasts, IGS TEC (final), Space-Track history, jamming cases,
+   ASG-EUPOS RINEX (Polish stations).
 6. Freeze job: re-pull all catalogues, write `freeze/<date>/` with a manifest.
 
 ## Status (checked 2026-10-11 20:42 UTC)
@@ -74,6 +75,8 @@ Run once: `cd code; uv run swx-noaa-live` (exit code 1 if any fetch failed). Tas
   `docs/zrodla_danych/weryfikacja_maila.md` claiming the list ends in 2011 is wrong (see `docs/decisions.md`).
 - NCEI texts: parse issue time from headers. Date-only means 23:59 UTC. Old RSGA (before 1996) may need OCR; test a
   sample before committing to it.
+- ASG-EUPOS RINEX (https://system.asgeupos.pl/) is answer key only (`answer_key/`). Account requirement and archive
+  depth are untested; check before writing the fetcher.
 - IGS TEC needs NASA Earthdata (`_netrc`); use the final product, not rapid. Space-Track needs an account, and its
   data must not be redistributed.
 - SSC and the Belsk magnetometer are CC BY-NC 4.0. Fine for the thesis; keep the attribution in the manifest.

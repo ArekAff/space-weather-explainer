@@ -42,3 +42,7 @@ an earlier one and over any snapshot document in `docs/`. Only Arek decides; age
   is now `SWX_DATA_DIR` (was `MAGISTERKA_DATA_DIR`) and the scheduled task lives under `\space-weather-explainer\`.
   The local working folder on Arek's laptop may keep its old name. Affects: `pyproject.toml`, `CLAUDE.md`,
   `code/CLAUDE.md`, `code/ingestion` (store, collector, register script), `docs/claude_md_guide.md`.
+- **ASG-EUPOS RINEX added as an effect (answer-key) source.** Arek: „tak” to adding https://system.asgeupos.pl/ for
+  measuring impact. Uses: ROTI and position error at Polish stations during G3+ storms; C/N0 and observation-count
+  drops on jamming days, cross-checked with rtgms.pl. Account requirement and archive depth untested. Affects:
+  `data_gathering_plan.md`, `code/ingestion/CLAUDE.md`.
