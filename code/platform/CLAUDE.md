@@ -47,7 +47,7 @@ moment (detected or user-marked, with t0)
 
 ## Evaluation rules
 
-- Event set: `docs/metodologia/zestaw_zdarzen_ewaluacja.csv` (131 events, `zbior` = DEV/TEST, `t0_utc`,
+- Event set: `docs/metodologia/zestaw_zdarzen_ewaluacja.csv` (v2: 157 events, 88 DEV / 69 TEST, `zbior` = DEV/TEST, `t0_utc`,
   `okres_korpusu`). Develop on DEV. TEST runs once, at the end, with Arek's go-ahead.
 - Accuracy: cause class accuracy and F1 (CME / high-speed stream / radiation / not space weather) against
   Richardson–Cane; onset time error against SSC; effect agreement against TEC/ROTI and orbit decay; share of jamming

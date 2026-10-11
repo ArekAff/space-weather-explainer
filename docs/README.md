@@ -11,7 +11,7 @@ Originals are in Polish unless noted. Later corrections live in `decisions.md`, 
 | Understand the thesis concept, data and variants as sent to the advisor | `email_promotor/odpowiedz_prof_surma_final.txt` (PL) |
 | Decide what to compare and how to score explanations | `metodologia/z_czym_porownac.md` (PL) |
 | Work with the evaluation events, DEV/TEST split, answer key, t0 | `metodologia/zestaw_zdarzen_zasady.md` (PL), `metodologia/zestaw_zdarzen_ewaluacja.csv` |
-| Rebuild the event set | `metodologia/zestaw_zdarzen_build.py` (args: path to `dataset_research/space_weather_decision`, output folder) |
+| Rebuild the event set | `metodologia/zestaw_zdarzen_build.py` (args: path to `dataset_research/space_weather_decision`, output CSV file or folder, optional rtgms alarms CSV; default `metodologia/rtgms_alarmy_2026.csv`) |
 | Build the RAG corpus: sources, exclusions, time cut-off, metadata, licences | `rag/projekt_korpusu_rag.md` (PL) |
 | Write a fetcher or the NOAA collector | `data_gathering_plan.md` (EN), then `zrodla_danych/jak_pobrac_dane_liczbowe.md` (EN) |
 | Check access, licence and terms of a source | `zrodla_danych/dostep_do_zrodel_danych.xlsx` |
