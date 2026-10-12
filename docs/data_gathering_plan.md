@@ -35,8 +35,9 @@ In `dataset_research/space_weather_decision/data/` unless noted; provenance in `
 | `noaa_sep_events_1976_to_2026.csv` | 1976-04-30 – 2026-07-30 | 320 | From NGDC; known date typos (see manifest) |
 | `intermagnet_BEL_1min_2024-05-10T12_to_2024-05-11T12.csv` | 10–11 May 2024, 1 min | 1,440 | Belsk, definitive |
 
-Nothing yet for: full Hp30, full OMNI, the NOAA live collector, NOAA forecasts and texts from NCEI, DONKI notes and
-reports, DONKI SEP/FLR/HSS events, review papers, IGS TEC maps, orbital data, jamming cases.
+Since then `code/ingestion` has added the NOAA live archive (from 2026-10-11) and the full GFZ and OMNI2 history
+(pulled 2026-10-11, see "Historical series: tested results"). Nothing yet for: NOAA forecasts and texts from NCEI,
+DONKI notes and reports, DONKI SEP/FLR/HSS events, review papers, IGS TEC maps, orbital data, jamming cases.
 
 ## Source cards
 
@@ -113,6 +114,17 @@ Archiving rules:
    An always-on machine is better for continuous alerts and texts. Texts and alerts can be recovered from NCEI later;
    live minute data cannot.
 
+## Historical series: tested results
+
+Pulled 2026-10-11 (UTC) with `uv run swx-gfz` and `uv run swx-omni` (`code/ingestion/src/swx_ingest/sources/`).
+Per-quantity coverage and gap lists: `data/raw/<source>/<dataset>_coverage.csv` and `<dataset>_gaps.parquet`.
+
+| File (size) | Directory | Cadence | Stored range | Rows | Gaps and status | Checks and quirks |
+|---|---|---|---|---|---|---|
+| `Kp_ap_Ap_SN_F107_since_1932.txt` (5.5 MB) | https://kp.gfz.de/app/files/ | 3 h (Kp, ap); daily (Ap, SN, F10.7) | 1932-01-01 – 2026-10-10 | 692,340 | Kp, ap, Ap, SN: no gaps. Kp `def` to 2026-09-30, `pre` 1–10 Oct; SN `pre` from 2026-04-01. F10.7 starts 1947-02-14, 459 missing stretches (12 days since 2010), stored as `provisional` | Same Kp as the JSON pull of 2026-10-10 (0 of 3,728 slots differ). Windows Python failed TLS to kp.gfz.de; fixed with certifi |
+| `Hp30_ap30_complete_series.txt` (44 MB) | https://kp.gfz.de/app/files/ | 30 min | 1985-01-01 – 2026-10-10 23:00 | 1,464,768 | No gaps (last slot, 23:30, is -1). All `provisional`: the file has no status (D always 0), Hpo V3.0 | Same values as the 6 storm windows pulled 2026-10-10 (1,104 slots identical) |
+| `omni2_YYYY.dat`, 64 files (2.9 MB each) | https://spdf.gsfc.nasa.gov/pub/data/omni/low_res_omni/ | 1 h | 1963-01-01 – 2026-10-11 | 26,276,760 (47 quantities) | Field to 2026-09-18, plasma to 09-29, Dst to 10-05 (no Dst gaps). Status from the spans on https://omniweb.gsfc.nasa.gov/html/ow_data.html: Dst final to 2020, provisional to 2026-07-31, quick look after; AE final to 1988-06, provisional to 2020, quick look after; field and plasma `def` by assumption | Yearly files instead of `omni2_all_years.dat` (184 MB), so a re-pull archives only changed years (2017 onward changed in 2025–2026). The current year is padded with fill lines to 31 Dec; future hours are dropped. Proton flux ends 2020-03-04. Kp, sunspot number, ap and F10.7 are not stored (GFZ is their source) |
+
 ## Rules for all sources
 
 - **Role separation.** Richardson–Cane and SSC are answer key only. The shock feature comes from DONKI IPS.
@@ -130,23 +142,29 @@ Order: first what cannot be recovered later (NOAA live), then what the test even
 
 Now
 - [x] Start the NOAA SWPC collector; check every URL on first fetch (scheduled every 30 min since 2026-10-11)
-- [ ] Create NASA Earthdata (CDDIS) and Space-Track accounts
+- [x] Create NASA Earthdata (CDDIS) and Space-Track accounts (both work, 2026-10-11)
 - [ ] E-mail CCMC about using DONKI for validation
 - [ ] E-mail GUGiK / IŁ-PIB about the RTGMS interference archive
 
 Historical series (input)
-- [ ] GFZ full Kp/ap/Ap since 1932 with status; replace the CelesTrak part of the merged file
-- [ ] Full Hp30 from GFZ; settle the start year (1985 or 1995)
-- [ ] OMNI2 hourly 1963–today (`omni2_all_years.dat`)
-- [ ] All DONKI CME, FLR, SEP, HSS and MPC 2010–today as raw JSON (60-day windows)
+- [x] GFZ full Kp/ap/Ap since 1932 with status; replace the CelesTrak part of the merged file (`gfz_kp`, 2026-10-11)
+- [x] Full Hp30 from GFZ (`gfz_hp30` from 1985-01-01, 2026-10-11); the start year for analysis (1985 or 1995) is
+  still open
+- [x] OMNI2 hourly 1963–today (yearly `omni2_YYYY.dat` files instead of `omni2_all_years.dat`, 2026-10-11)
+- [ ] All DONKI CME, FLR, SEP, HSS, MPC, IPS, GST and RBE 2010–today as raw JSON (60-day windows), every version
+  (all 8 types carry `submissionTime` and `versionId`; the API serves only the latest version)
+- [ ] A >10 MeV proton-flux series for 2020-03 – 2026-10 for variant A (OMNI2 protons end 2020-03-04); no source tested
 
 Test event set
 - [x] G3+ storms since 2010, G1–G2 sample and quiet days (done: `metodologia/zestaw_zdarzen_ewaluacja.csv`)
-- [ ] OMNI 1-min (HRO) for those storm windows
+- [ ] OMNI 1-min (HRO) for those storm windows (HAPI `OMNI_HRO_1MIN`, 1981 – 2026-09-30, has SYM-H and AE)
+- [ ] Rebuild the event set with `gfz_kp`: adds the G3 storm of 2026-10-10 (missing) and Kp for J160; needs Arek's OK
 
 Knowledge base (RAG)
-- [ ] NOAA texts from NCEI: RSGA, SGAS, event reports, The Weekly, Forecast Discussion; test whether old RSGA needs OCR
-- [ ] DONKI notes (`note` field) and reports, if the API serves them
+- [ ] NOAA texts from NCEI: RSGA, SGAS, event reports, The Weekly, Forecast Discussion (archive current to 2026-10-10;
+  text files carry `:Issued:` to the minute). The Weekly and pre-1996 RSGA are PDF: test extraction and OCR first
+- [ ] DONKI notifications and weekly reports (API serves them from 2010-04-05, `messageIssueTime` to the minute) and
+  notes (`note` field)
 - [ ] Temmer 2021 and Richardson 2018
 - [ ] Give every document an issue time
 

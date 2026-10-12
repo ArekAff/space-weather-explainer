@@ -27,6 +27,21 @@ moment (detected or user-marked, with t0)
 - **Answer key isolation.** Only `evaluation/` may import the answer-key loader. Add a test that fails if any other
   module imports it.
 
+## Data available (audit 2026-10-12)
+
+- `normalized/gfz_kp` (Kp and ap 3-hourly, Ap, `sn`, `f107_obs`, `f107_adj` daily; from 1932), `gfz_hp30` (from 1985),
+  `omni2_hourly` (47 quantities from 1963, incl. `dst`, `ae`/`al`/`au`, `pcn`), `noaa_swpc_*` (live, `realtime`,
+  from 2026-10-04). Read the latest `version` per key; `status_basis` says why a value has its status.
+- OMNI2 lags 2–4 weeks. Where it has no data, take solar wind from `noaa_swpc_solar_wind` and record per feature
+  which source it came from. Proton flux: OMNI2 ends 2020-03-04 and NOAA live starts 2026-10-04 (open question).
+- Event set: only `id`, `t0_utc` and `stacja` may reach the system; `zbior` and `okres_korpusu` only select and group
+  runs. Every other column is answer key or describes what happened after t0.
+- DONKI catalogue entries arrive late (05/2024 IPS: median 77 h after the shock; 2012 entries: 1.2–11 years later),
+  so under the gate B sees almost no catalogue for P1 events. Real-time notifications carry `messageIssueTime`. Where
+  B's shock flag comes from is open (`docs/open_questions.md`).
+- Coverage of the 72 h before t0: Kp and Hp30 complete for all 157 events, solar wind at least 90 % for 146. The
+  readiness audit lists the 11 others: https://claude.ai/code/artifact/86adc040-9fb4-46d0-8978-736e84f031b2
+
 ## Component notes
 
 - Detection: the baseline from the research is robust z ≥ 3 on log(ap+1) against the median and IQR of the previous
