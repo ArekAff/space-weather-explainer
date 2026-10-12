@@ -5,13 +5,17 @@ answer. Grouped by where the answer will come from.
 
 ## Answered by trying it (first download)
 
-- Hp30 start: 1985 (Hpo V3.0, as in the advisor e-mail) or 1995 (access table)? Check on the GFZ site.
-- Does the DONKI API return archived notifications and weekly reports, and from what date? Which entry types carry
-  `submissionTime`?
-- Format of issue-time headers in SGAS, RSGA and The Weekly across 1996–2026.
-- Is pre-1996 RSGA only scanned PDF (needs OCR)? Test a sample.
-- Does IGS publish ROTI maps for Europe on CDDIS, or must ROTI be computed from TEC or RINEX? Check after creating the
-  Earthdata account.
+- Resolved 2026-10-12: GFZ's complete Hp30 file (Hpo V3.0) starts 1985-01-01, and the store holds it from there.
+- Resolved 2026-10-12: notifications, weekly reports included, go back to 2010-04-05 with `messageIssueTime` to the
+  minute. All 8 event types carry `submissionTime` and `versionId`; the API serves only the latest version. Entries
+  arrive late (2012 entries 1.2–11 years after the event; 05/2024 IPS entries a median 77 h after the shock).
+- Resolved 2026-10-12 for the text products: RSGA (1996, 2026), SGAS (2010) and Forecast Discussion (2026) start with
+  `:Issued: YYYY Mon DD HHMM UTC`. The Weekly is PDF; check its issue date when extracting.
+- Is pre-1996 RSGA only scanned PDF (needs OCR)? The NCEI files are PDF (1980 sample); OCR need still untested.
+- Resolved 2026-10-11 (accounts thread): IGS final ROTI maps (`IGS0OPSFIN_..._ROT.INX.gz`) sit next to the GIM files
+  in `gnss/products/ionex/YYYY/DDD/` on CDDIS.
+- Resolved 2026-10-12: no. OMNI2 proton flux ends 2020-03-04, so variant A has no proton numbers from 2020-03 until
+  the live collector's GOES data start on 2026-10-04 (see the question under "Arek decides").
 
 ## Arek decides
 
@@ -23,6 +27,12 @@ answer. Grouped by where the answer will come from.
   always-on machine for full continuity of alerts and texts.
 - Use of the 7 storms marked SPORNE (catalogues disagree): score against Richardson–Cane, or exclude them and say so.
 - Which LLM and embedding model to use, and whether to pin their versions for the whole evaluation.
+- Where variant B's shock flag comes from (readiness audit, 2026-10-12). DONKI IPS catalogue entries appear a median
+  77 h after the shock (05/2024; the 2024-05-10 shock got its entry 4.3 days later), so the time gate hides them at
+  t0; the real-time IPS alert came 25 min after that shock. Options: alerts (on time, text) or entries (mostly
+  missing at t0). Touches the wording of invariant 2.
+- Whether variant A needs >10 MeV proton flux for 2020-03 – 2026-10 (TEST radiation storms such as 2026-01-19). No
+  source tested yet; the GOES archive at NCEI is the likely candidate.
 
 ## Advisor (Prof. Surma) or outside parties
 
@@ -37,3 +47,17 @@ answer. Grouped by where the answer will come from.
 - Effect sources for the 03/2015 and 09/2017 storms came from memory and are unverified; check before citing.
 - One TEST storm (2026-08-18) falls after the end of the Richardson–Cane list, so its cause key rests on DONKI
   (weakened key).
+- The G3 storm of 2026-10-10 (GFZ nowcast Kp 7+ at 15:00 UTC) is missing: the build read Kp only to 2026-10-09.
+  Rebuilding with `normalized/gfz_kp` adds it to TEST and fills Kp for J160; it changes the event set, so it needs
+  Arek's OK.
+- Resolved 2026-10-11: the 3 period entries were replaced by 29 rtgms.pl episodes (J132–J160); see `decisions.md`.
+- Time zone of rtgms.pl times (UTC or Polish time) is unconfirmed; it shifts t0 of J132–J160 by up to 2 h. Kp is
+  checked from alarm start minus 2 h, so the Kp-based labels do not depend on it.
+- J155 (BRWO 2026-08-23 19:17–19:25) has exactly the same clock times as WIKO 2026-07-18; possible transcription slip.
+- J160 (BRWO 2026-10-10) has no Kp yet (Kp data end 2026-10-09); rerun the build after the next Kp download.
+- Resolved 2026-10-11 (Arek): rtgms.pl shows Polish local time (CEST = UTC+2 for all alarms in 05–10/2026). J132–J160
+  are now in UTC; the new column `poczatek_rtgms_pl` keeps the time shown on the site. IDs and DEV/TEST are unchanged;
+  Kp changed in 10 episodes but none reached 5-. J140/J141 start 32 min after the DONKI shock at 12:06 UTC, which their
+  key now notes.
+- Resolved 2026-10-11 (Arek): J155 (BRWO 2026-08-23) and J151 (WIKO 2026-07-18) are correct readings, not a
+  transcription slip.

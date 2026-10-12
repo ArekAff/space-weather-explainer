@@ -1,10 +1,28 @@
-"""Buduje zestaw zdarzeń ewaluacyjnych (warianty A/B/C) z katalogów pobranych na laptopie Arka."""
+"""Buduje zestaw zdarzeń ewaluacyjnych (warianty A/B/C) z katalogów pobranych na laptopie Arka.
+
+Użycie: python zestaw_zdarzen_build.py <space_weather_decision> <plik.csv lub folder> [rtgms_alarmy_2026.csv]
+
+ID są stabilne: jeśli plik wyjściowy już istnieje, skrypt zachowuje ID zdarzeń o tej samej kategorii,
+tym samym początku i tej samej stacji (dla alarmów rtgms.pl: początek wg rtgms.pl, w czasie polskim),
+a nowe zdarzenia dostają kolejne numery. ID usuniętych zdarzeń nie są używane ponownie.
+"""
 import sys
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
 D = sys.argv[1]  # .../space_weather_decision
-OUT = sys.argv[2]
+OUT = Path(sys.argv[2])
+if OUT.is_dir():
+    OUT = OUT / "zestaw_zdarzen_ewaluacja.csv"
+HERE = Path(__file__).resolve().parent
+RTGMS = Path(sys.argv[3]) if len(sys.argv) > 3 else HERE / "rtgms_alarmy_2026.csv"
+FLARES = HERE / "donki_flr_mx_2026-05_2026-10.csv"
+VERSION = "v2 (2026-10-11): dni zagłuszania z rtgms.pl"
+# Wyjątek od zasady „TEST od 01.01.2025” (decyzja Arka 11.10.2026): epizody z rtgms.pl sprzed tej daty idą do DEV,
+# bo bez nich DEV nie ma żadnego alarmu ze stacji. Podział zostaje czasowy wewnątrz 2026 (maj DEV, czerwiec+ TEST).
+RTGMS_DEV_END = pd.Timestamp("2026-06-01")
 SEED = 2026
 TEST_START = pd.Timestamp("2025-01-01")
 FD_START = pd.Timestamp("2024-03-01")      # NOAA Forecast Discussion
@@ -212,7 +230,7 @@ def effects(level, s_lvl, key_dates):
             status = "udokumentowane: " + dst
     return gn, sat, src, status
 
-MEASURE = ("GNSS: ROTI/TEC z IGS (IONEX, CDDIS) nad Polską; obserwacje EPN (np. BOGO, JOZE, WROC, LAMA) – błąd pozycji; "
+MEASURE = ("GNSS: RINEX ze stacji ASG-EUPOS (system.asgeupos.pl) – ROTI i błąd pozycji na stacjach w Polsce; ROTI/TEC z IGS (IONEX, CDDIS); obserwacje EPN (np. BOGO, JOZE, WROC, LAMA) – błąd pozycji; "
            "wskaźnik I95 ASG-EUPOS. Satelity: TLE Space-Track (spadek wysokości/B* Starlink, LEO)")
 
 def period(t):
@@ -246,7 +264,7 @@ def add(cat, onset, peak, end, level, kpmax, extra_key=None, key_src=None, note=
         ssc_inne_w_oknie=r["ssc_all"], donki_gst=r["gst"], donki_cme=r["donki_cme"], donki_hss=r["donki_hss"], donki_ips=r["donki_ips"],
         donki_klasa=r["donki_cls"], spe=r["spe"],
         skutek_gnss=gn, skutek_satelity=sat, skutek_zrodlo=src, skutek_status=status,
-        pomiar_skutku=MEASURE if cat != "Zagłuszanie GNSS (kontrprzykład)" else "rtgms.pl (archiwum stacji ASG-EUPOS), GPSJam; ROTI IGS jako kontrola (oczekiwane: spokojna jonosfera)",
+        pomiar_skutku=MEASURE if cat != "Zagłuszanie GNSS (kontrprzykład)" else "rtgms.pl (Monitoring Medium: obserwacje/oczekiwane, utracone cykle; Monitoring Low: widmo); RINEX ASG-EUPOS (system.asgeupos.pl) – spadek C/N0 i liczby obserwacji; GPSJam; ROTI jako kontrola (oczekiwane: spokojna jonosfera)",
         noaa_forecast_discussion="tak" if onset >= FD_START else "nie (przed 03/2024)",
         wymuszone=("tak" if forced else ""), uwagi=note))
 
@@ -313,14 +331,8 @@ JAM = [
      "zaufanatrzeciastrona.pl 29.11.2025 (za GPSJam/ADS-B Exchange)", "dzień"),
     ("2025-06-14 00:00", "2025-06-15 23:59", "Hel, Trójmiasto", "Upadki dronów do Bałtyku, pojazdy na mapach w morzu; PAŻP: ostrzeżenie NW „ZAKLOCENIA GPS” dla całej Polski (NOTAM M0520/25). Zbiega się z końcem burzy G3 11–14.06 i ćwiczeniami BALTOPS 25.",
      "zaufanatrzeciastrona.pl 29.11.2025; swiatdronow.pl 16.06.2025", "dzień"),
-    ("2026-05-01 00:00", "2026-06-30 23:59", "Pomorze (stacja IŁ-PIB Gdańsk)", "Wielogodzinne zakłócenia wszystkich pasm GNSS w ok. 70% dni maja i czerwca. OKRES, nie zdarzenie: konkretne dni wybrać z rtgms.pl.",
-     "IŁ-PIB 27.08.2026; naukawpolsce.pl 10.09.2026", "okres – do rozbicia na dni"),
     ("2026-06-30 00:00", "2026-06-30 23:59", "stacja ASG-EUPOS Siedlce", "Komunikat GUGiK wskazany we wcześniejszej weryfikacji maila; dziś nie udało się go ponownie odnaleźć.",
      "weryfikacja_maila.md (pkt 2.10) – do potwierdzenia", "do potwierdzenia"),
-    ("2026-07-01 00:00", "2026-07-31 23:59", "Pomorze", "Ok. 90 h zakłóceń pasma L1 w lipcu (12–20% miesiąca). OKRES – dni z rtgms.pl.",
-     "Euronews 25.08.2026 (za IŁ-PIB/PAP)", "okres – do rozbicia na dni"),
-    ("2026-08-01 00:00", "2026-08-19 23:59", "Pomorze", "Całkowite zakłócenia w 63% dni 1–19.08. OKRES – dni z rtgms.pl.",
-     "IŁ-PIB 27.08.2026", "okres – do rozbicia na dni"),
     ("2026-08-21 00:00", "2026-08-21 23:59", "Bałtyk (ORP Albatros)", "Zagłuszanie GPS na okręcie ORP Albatros podczas operacji NATO.",
      "Euronews 25.08.2026 (za JFC Brunssum)", "dzień"),
 ]
@@ -342,13 +354,134 @@ for a, b, where, what, src, prec in JAM:
     rows[-1]["skutek_zrodlo"] = src
     rows[-1]["skutek_status"] = "udokumentowane (komunikat/prasa)"
 
+# 6) rtgms.pl Monitoring Low: alarmy ze stacji ASG-EUPOS (odczyt ręczny Arka 11.10.2026)
+# Epizod = ciąg alarmów na jednej stacji z przerwami < 6 h. rtgms.pl pokazuje czas polski (wg Arka 11.10.2026),
+# tu wszystko liczymy w UTC (start_utc, koniec_utc z rtgms_parse.py). Etykieta rtgms jest kluczem odpowiedzi, nie wejściem systemu.
+GAP = pd.Timedelta(hours=6)
+CITY_KM = "ok. 150 km"
+# Odczyty sprawdzone przez Arka 11.10.2026: te same godziny na obu stacjach w różne dni, ale bez pomyłki.
+SAME_CLOCK_OK = {("WIKO", "2026-07-18 19:17"), ("BRWO", "2026-08-23 19:17")}
+al = (pd.read_csv(RTGMS, parse_dates=["start", "koniec", "start_utc", "koniec_utc"])
+      .sort_values(["stacja", "start_utc"]))
+fl = pd.read_csv(FLARES, parse_dates=["begin_utc", "end_utc"]) if FLARES.exists() else None
+episodes = []
+for st, g in al.groupby("stacja"):
+    cur = None
+    for _, w in g.iterrows():
+        if cur is not None and w.start_utc - cur["koniec"] < GAP:
+            cur["koniec"] = max(cur["koniec"], w.koniec_utc)
+            cur["okna"].append(w)
+        else:
+            cur = dict(stacja=st, miasto=w.miasto, start=w.start_utc, koniec=w.koniec_utc, start_pl=w.start, okna=[w])
+            episodes.append(cur)
+
+def overlaps(a0, a1, b0, b1, tol=pd.Timedelta(minutes=5)):
+    return a0 <= b1 + tol and b0 <= a1 + tol
+
+BANDS = ["L1", "L2", "L5", "E6"]
+for ep in episodes:
+    st, ok = ep["stacja"], pd.DataFrame(ep["okna"])
+    t0, t1 = ep["start"], ep["koniec"]
+    utc_off = int((ep["start_pl"] - t0).total_seconds() // 3600)
+    v = kp3[t0.floor("3h"): t1].max()
+    dur = (ok.koniec_utc - ok.start_utc).sum()
+    flags = {b: ok[b].max() for b in BANDS if ok[b].notna().any()}
+    if flags:
+        bands = ", ".join(f"{b} {'zakłócenia' if x == 2 else 'możliwe' if x == 1 else 'czyste'}" for b, x in flags.items())
+    else:
+        bands = "nie podane"
+    other = al[al.stacja != st]
+    sim = [o for _, o in other.iterrows()
+           if any(overlaps(w.start_utc, w.koniec_utc, o.start_utc, o.koniec_utc, pd.Timedelta(0)) for w in ep["okna"])]
+    # te same godziny (czas polski, jak w odczycie) na drugiej stacji w inny dzień: możliwa pomyłka przy przepisywaniu
+    same_clock = [(w, o) for _, o in other.iterrows() for w in ep["okna"]
+                  if o.start.date() != w.start.date() and o.start.time() == w.start.time() and o.koniec.time() == w.koniec.time()]
+    flare_hits, shocks = [], ips.iloc[0:0]
+    if t1 - t0 <= pd.Timedelta(hours=6):
+        if fl is not None:
+            for w in ep["okna"]:
+                h = fl[(fl.begin_utc <= w.koniec_utc + pd.Timedelta(minutes=5)) &
+                       (fl.end_utc >= w.start_utc - pd.Timedelta(minutes=5))]
+                flare_hits += [f"{x.klasa} {x.begin_utc:%H:%M}–{x.end_utc:%H:%M} UTC" for x in h.itertuples()]
+        # fala uderzeniowa w DONKI (pomiar przy L1) do 2 h przed alarmem lub w jego trakcie
+        shocks = ips[(ips.t >= t0 - pd.Timedelta(hours=2)) & (ips.t <= t1)]
+    if pd.isna(v):
+        key, level = "nie pogoda kosmiczna (zakłócenie RF wg rtgms.pl); Kp do uzupełnienia (dane do 2026-10-09)", "brak danych Kp"
+    elif v >= 4.6:
+        key, level = f"zakłócenie RF w czasie burzy (Kp max {kp_str(v)}) – przypadek mieszany", f"Kp {kp_str(v)}"
+    else:
+        key, level = "nie pogoda kosmiczna (zakłócenie RF wg rtgms.pl)", "brak"
+    if sim:
+        key += f"; jednoczesny alarm na {sim[0].stacja} ({CITY_KM}) – przyczyna niejednoznaczna"
+    if flare_hits:
+        key += "; SPRAWDZIĆ: pokrywa się z rozbłyskiem M/X"
+    if len(shocks):
+        key += f"; alarm tuż po fali uderzeniowej (DONKI IPS {shocks.t.iloc[-1]:%H:%M} UTC)"
+    wins = [f"{w.start_utc:%m-%d %H:%M}–{w.koniec_utc:%H:%M}" for w in ep["okna"]]
+    wtxt = "; ".join(wins[:6]) + (f"; … (+{len(wins) - 6})" if len(wins) > 6 else "")
+    note = (f"Stacja ASG-EUPOS {st} ({ep['miasto']}). Czasy w UTC; rtgms.pl pokazuje czas polski (tu UTC+{utc_off}). "
+            f"Okna (UTC): {wtxt}.")
+    if sim:
+        note += f" Jednocześnie alarm na {sim[0].stacja} {sim[0].start_utc:%H:%M}–{sim[0].koniec_utc:%H:%M} UTC."
+    for w, o in same_clock[:1]:
+        if (st, f"{w.start:%Y-%m-%d %H:%M}") in SAME_CLOCK_OK:
+            note += (f" Te same godziny co {o.stacja} {o.start:%d.%m} (czas polski); "
+                     "Arek sprawdził 11.10.2026, że to nie pomyłka przy przepisywaniu.")
+        else:
+            note += f" SPRAWDZIĆ odczyt: te same godziny co {o.stacja} {o.start:%d.%m} (czas polski)."
+    if flare_hits:
+        note += " Rozbłyski w oknie: " + "; ".join(dict.fromkeys(flare_hits)) + "."
+    for x in shocks.itertuples():
+        note += (f" Fala uderzeniowa w DONKI (IPS) o {x.t:%H:%M} UTC, {int((t0 - x.t).total_seconds() // 60)} min przed alarmem; "
+                 "IPS mierzy się przy L1, ok. 1,5 mln km od Ziemi, więc fala dociera do Ziemi zwykle 30–60 min później.")
+    if t1 - t0 > pd.Timedelta(days=1):
+        note += " Wielodniowy ciąg zakłóceń (także w nocy), więc rozbłyski w tym czasie go nie wyjaśniają."
+    add("Zagłuszanie GNSS (kontrprzykład)", t0, t0, t1, level, v, extra_key=key,
+        key_src="rtgms.pl Monitoring Low (alarm 2), odczyt ręczny 11.10.2026 – klucz, nie wejście systemu", note=note)
+    h, m = divmod(int(dur.total_seconds() // 60), 60)
+    rows[-1]["skutek_gnss"] = (f"rtgms.pl: alarm 2 (zakłócenia) na stacji {st} ({ep['miasto']}); {len(wins)} okn., "
+                               f"łącznie {h} h {m:02d} min; pasma: {bands}.")
+    rows[-1]["skutek_zrodlo"] = "https://www.rtgms.pl/monitoring-low"
+    rows[-1]["skutek_status"] = "udokumentowane (rtgms.pl, odczyt ręczny)"
+    rows[-1]["stacja"] = st
+    rows[-1]["poczatek_rtgms_pl"] = f"{ep['start_pl']:%Y-%m-%d %H:%M}"
+    if t0 < RTGMS_DEV_END:
+        rows[-1]["zbior"] = "DEV"
+        rows[-1]["uwagi"] += (" DEV mimo daty z 2026 r.: wyjątek od zasady „TEST od 01.01.2025” dla alarmów rtgms.pl "
+                              "z maja 2026 (decyzja Arka 11.10.2026).")
+
 df = pd.DataFrame(rows)
-order = {"Burza G5": 0, "Burza G4": 1, "Burza G3": 2, "Burza G2": 3, "Burza G1": 4}
-df["_o"] = df.kategoria.map(order).fillna(9)
-df = df.sort_values(["poczatek_utc"]).reset_index(drop=True)
+df["stacja"] = df.get("stacja", pd.Series(dtype=str)).fillna("")
+df["poczatek_rtgms_pl"] = df.get("poczatek_rtgms_pl", pd.Series(dtype=str)).fillna("")
+df = df.sort_values(["poczatek_utc"], kind="stable").reset_index(drop=True)
 pref = {"Burza": "B", "Dzień": "Q", "Impuls/fala": "F", "Zagłuszanie": "J"}
-df.insert(0, "id", [f"{pref[c.split()[0]]}{i+1:03d}" for i, c in enumerate(df.kategoria)])
-df = df.drop(columns="_o")
+prev = pd.read_csv(OUT, dtype=str).fillna("") if OUT.exists() else None
+if prev is None:
+    df.insert(0, "id", [f"{pref[c.split()[0]]}{i+1:03d}" for i, c in enumerate(df.kategoria)])
+    df["wersja"] = VERSION
+else:
+    # klucz zdarzenia: kategoria + początek + stacja (dwie stacje mogą mieć alarm o tej samej minucie).
+    # Dla alarmów rtgms.pl początek wg rtgms.pl (czas polski); w CSV sprzed przeliczenia na UTC stał on w poczatek_utc.
+    def ekey(r):
+        return (r.kategoria, getattr(r, "poczatek_rtgms_pl", "") or r.poczatek_utc, getattr(r, "stacja", ""))
+    known = {ekey(r): r.id for r in prev.itertuples()}
+    ver = {ekey(r): (getattr(r, "wersja", "") or "v1 (2026-10-11)") for r in prev.itertuples()}
+    if len(known) != len(prev):
+        sys.exit("Poprzedni CSV ma powtórzone klucze zdarzeń – przerwano, żeby nie pomieszać ID.")
+    n = max(int(i[1:]) for i in prev.id)
+    ids, vers = [], []
+    for r in df.itertuples():
+        k = ekey(r)
+        if k in known:
+            ids.append(known[k]); vers.append(ver[k])
+        else:
+            n += 1
+            ids.append(f"{pref[r.kategoria.split()[0]]}{n:03d}"); vers.append(VERSION)
+    df.insert(0, "id", ids)
+    df["wersja"] = vers
+    gone = sorted(set(prev.id) - set(df.id))
+    if gone:
+        print("Usunięte ID (nie używać ponownie):", ", ".join(gone))
+assert df.id.is_unique, "Powtórzone ID"
 df.to_csv(OUT, index=False)
 print(df.groupby(["kategoria", "zbior"]).size().unstack(fill_value=0))
-print(df.klucz_przyczyna.value_counts().head(20))

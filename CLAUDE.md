@@ -16,15 +16,15 @@ better documented explanations than numeric data alone? Same events, variants di
 
 | Variant | Gets | Role |
 |---|---|---|
-| A | Numeric series + detected anomalies only | Baseline from the research question |
-| B | A + event catalogues (DONKI structured fields, proton events) | Separates the catalogue effect from RAG |
+| A | Numeric series + detected anomalies; analogues on numeric features only | Baseline from the research question |
+| B | A + DONKI catalogues (structured fields incl. SEP proton events; shock, CME speed and driver type also filter analogues) | Separates the catalogue effect from RAG |
 | C | B + RAG over expert texts, with citations | The platform |
 | D (optional) | NOAA forecaster's own text | External ceiling, only from 03/2024 |
 
 Invariants. Breaking one silently invalidates the thesis:
-1. **The answer key never reaches the system.** Richardson–Cane ICME list, SSC list (ISGI/Ebre), effect data (IGS
-   TEC/ROTI, EPN, orbital elements), GUGiK notices about specific jamming cases, and case-study papers about test
-   events are used only by evaluation code.
+1. **The answer key never reaches the system.** Richardson–Cane ICME list, SSC list (ISGI/Ebre), NOAA proton-event
+   list (NGDC), effect data (IGS TEC/ROTI, EPN, orbital elements), GUGiK notices about specific jamming cases, and
+   case-study papers about test events are used only by evaluation code.
 2. **Shock-arrival feature comes from DONKI IPS**, never from SSC (SSC is answer key).
 3. **Time cut-off.** A document or catalogue entry is visible for event *e* only if `issued_at <= t0(e)`. Publication
    time counts, not the period described. Date-only timestamps count as 23:59 UTC. This applies to catalogues in B
@@ -63,8 +63,9 @@ Full rationale: `docs/README.md` (index), decisions in `docs/decisions.md`, unre
 
 Key numbers from `dataset_research/space_weather_decision/README.md` that the code should reproduce or beat:
 100 % of G3+ storms 2010–2026 have a catalogued cause (random windows 32 %); Kp-only analogues add no skill over
-climatology by onset level (Brier skill 0.095); adding a shock flag gives 0.131. Analogues must use driver features
-(solar wind, CME speed, shock), not Kp shape alone.
+climatology by onset level (Brier skill 0.095); adding a shock flag gives 0.131 (measured with SSC, now answer key;
+re-measure with DONKI IPS). Analogues must use driver features, not Kp shape alone: solar wind in every variant;
+shock (DONKI IPS), CME speed and driver type only in B and C.
 
 ## How to work here
 

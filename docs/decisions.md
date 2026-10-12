@@ -46,3 +46,23 @@ an earlier one and over any snapshot document in `docs/`. Only Arek decides; age
   measuring impact. Uses: ROTI and position error at Polish stations during G3+ storms; C/N0 and observation-count
   drops on jamming days, cross-checked with rtgms.pl. Account requirement and archive depth untested. Affects:
   `data_gathering_plan.md`, `code/ingestion/CLAUDE.md`.
+- **Evaluation event set v2: 157 events.** Arek sent rtgms.pl Monitoring Low alarm lists for stations WIKO (Wicko)
+  and BRWO (Braniewo), 05–10/2026. 29 jamming episodes were added as J132–J160 (episode = alarms at one station with
+  gaps < 6 h; default chosen by the event-set thread, Arek can override). The three 2026 period placeholders J121,
+  J126, J128 were removed; their IDs are retired and all other IDs are unchanged (IDs are keyed on category + start +
+  station). The rtgms.pl label and band are answer key; the system gets only the symptom (station, time, RINEX signal
+  quality). Supersedes the "131 events" entry above. Affects: `metodologia/zestaw_zdarzen_*`, `metodologia/rtgms_*`.
+- **DEV/TEST exception (Arek, decision card): the May 2026 rtgms.pl jamming episodes (J132–J139, BRWO) are DEV.**
+  Without them DEV has no station-level jamming case for building the RINEX-symptom input. The split stays
+  time-ordered inside 2026 (May DEV, June–October TEST). Totals: DEV 96, TEST 61. Supersedes "TEST = events from
+  2025-01-01 (43), DEV = 88" for these events. Affects: `CLAUDE.md` invariant 5 (numbers and exception),
+  `metodologia/zestaw_zdarzen_zasady.md`, `metodologia/zestaw_zdarzen_build.py`.
+- **Variant B's proton events are DONKI SEP entries; the NOAA (NGDC) proton-event list is answer key only (Arek's
+  OK, decision card).** The NGDC list is compiled after the fact and has no issue time, so it could not pass the time
+  cut-off. DONKI SEP and the NGDC list both derive from GOES >10 MeV flux, so B's input and the radiation key are not
+  fully independent; say so in the thesis. Affects: `CLAUDE.md` (variant B row, invariant 1).
+- **Analogue features follow knowledge access (Arek's OK, decision card).** A matches on numeric features only
+  (Kp/Hp30, solar wind; a shock detected from those numbers is numeric). B and C add DONKI filters through the time
+  gate: shock (IPS), CME speed, driver type. The GO report already labels the shock flag as knowledge (§4.3). Its
+  0.131 benchmark used SSC, now answer key, so re-measure it with DONKI IPS; A's benchmark is climatology by onset
+  level (0.095). Affects: `CLAUDE.md` (variant rows A and B, key numbers), `code/platform/CLAUDE.md` (analogues).

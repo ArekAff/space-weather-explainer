@@ -47,8 +47,10 @@ moment (detected or user-marked, with t0)
 - Detection: the baseline from the research is robust z ≥ 3 on log(ap+1) against the median and IQR of the previous
   27 days. For space weather "anomaly" mostly means "storm", so the added value is quiet-time anomalies,
   data-quality flags and later forecast misses.
-- Analogues: the windows' continuation must end before t0. Use driver features (solar wind, Bz, CME speed, shock flag
-  from DONKI IPS), not Kp shape alone. Benchmark to beat: climatology by onset level + shock flag (Brier skill 0.131).
+- Analogues: the windows' continuation must end before t0. Use driver features, not Kp shape alone. Variant A matches
+  on numeric features only (Kp/Hp30, solar wind speed, density, Bz; a shock detected from these numbers is numeric).
+  B and C add DONKI filters (shock from IPS, CME speed, driver type) through the time gate. Benchmarks: A, climatology
+  by onset level (Brier skill 0.095); B and C, climatology by level + shock flag (0.131 with SSC; re-measure with IPS).
   Report skill scores against climatology and persistence, never raw accuracy.
 - Retrieval: chunk along product sections (Forecast Discussion and RSGA sections, one DONKI notification per chunk,
   review papers by subsection with page). Mask background chunks that mention the tested event (date within ±3 days,
