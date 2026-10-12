@@ -25,15 +25,23 @@ import os
 import re
 import sys
 import time
-import urllib.error
-import urllib.request
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import pandas as pd
 
-from swx_ingest.store import RawArchive, StoreLock, data_dir, utc_now, write_parquet_atomic
+from swx_ingest.store import (
+    KEY,
+    FetchError,
+    RawArchive,
+    SeriesStore,
+    StoreLock,
+    data_dir,
+    http_get,
+    utc_now,
+    write_parquet_atomic,
+)
 
 log = logging.getLogger(__name__)
 
@@ -58,7 +66,6 @@ NORMALIZED_COLUMNS = [
     "retrieved_at",
     "source_file",
 ]
-KEY = ["time_utc", "quantity", "qualifier"]
 GAP_COLUMNS = ["logged_at", "kind", "dataset", "start_utc", "end_utc", "detail"]
 
 # Units by field name. Exact names first, then name patterns; anything else gets unit "" and a warning.
@@ -104,6 +111,11 @@ def unit_for(field: str) -> str | None:
         if pattern.search(key):
             return unit
     return None
+
+
+def fetch(url: str) -> bytes:
+    """GET a SWPC file with this collector's User-Agent (retries and back-off in `store.http_get`)."""
+    return http_get(url, USER_AGENT)
 
 
 @dataclass(frozen=True)
@@ -165,30 +177,6 @@ PRODUCTS: tuple[Product, ...] = (
     Product("geomag_forecast_3day", "text/3-day-geomag-forecast.txt", "text"),
     Product("discussion", "text/discussion.txt", "text"),
 )
-
-
-# --------------------------------------------------------------------------- fetching
-
-
-class FetchError(RuntimeError):
-    pass
-
-
-def fetch(url: str, attempts: int = 3, timeout_s: float = 60.0) -> bytes:
-    """GET with a descriptive User-Agent and capped exponential back-off (5 s, 10 s, ... max 30 s)."""
-    last: Exception | None = None
-    for i in range(attempts):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-            with urllib.request.urlopen(req, timeout=timeout_s) as resp:
-                return resp.read()
-        except (urllib.error.URLError, TimeoutError, OSError) as exc:
-            last = exc
-            if isinstance(exc, urllib.error.HTTPError) and 400 <= exc.code < 500:
-                break  # a 404 will not fix itself
-            if i < attempts - 1:
-                time.sleep(min(30.0, 5.0 * 2**i))
-    raise FetchError(f"{url}: {last}")
 
 
 # --------------------------------------------------------------------------- parsing
@@ -319,83 +307,6 @@ def parse_issued(text: str) -> datetime | None:
     if not m:
         return None
     return datetime.strptime(" ".join(m.group(1).split()), "%Y %b %d %H%M").replace(tzinfo=UTC)
-
-
-# --------------------------------------------------------------------------- normalised store
-
-
-def _same(a: pd.Series, b: pd.Series) -> pd.Series:
-    return (a == b) | (a.isna() & b.isna())
-
-
-def merge_versions(existing: pd.DataFrame, new: pd.DataFrame) -> pd.DataFrame:
-    """Return only the rows of `new` that are new keys or changed values, with their version numbers set.
-
-    Existing rows are never modified: a changed value is a new version (latest + 1).
-    """
-    if new.empty:
-        return new
-    if existing.empty:
-        return new.assign(version=1)
-    latest = existing.sort_values("version").groupby(KEY, as_index=False).tail(1)
-    latest = latest[KEY + ["value", "unit", "version"]].rename(
-        columns={"value": "_old_value", "unit": "_old_unit", "version": "_old_version"}
-    )
-    m = new.drop(columns="version").merge(latest, on=KEY, how="left")
-    is_new = m["_old_version"].isna()
-    changed = ~is_new & ~(_same(m["value"], m["_old_value"]) & (m["unit"] == m["_old_unit"]))
-    m = m[is_new | changed].copy()
-    m["version"] = m["_old_version"].fillna(0).astype(int) + 1
-    return m[NORMALIZED_COLUMNS]
-
-
-class SeriesStore:
-    """Monthly Parquet files per dataset under `normalized/<dataset>/<YYYY-MM>.parquet`."""
-
-    def __init__(self, root: Path, dataset: str) -> None:
-        self.dir = root / "normalized" / dataset
-
-    def _path(self, month: str) -> Path:
-        return self.dir / f"{month}.parquet"
-
-    def read_month(self, month: str) -> pd.DataFrame:
-        p = self._path(month)
-        return pd.read_parquet(p) if p.exists() else pd.DataFrame(columns=NORMALIZED_COLUMNS)
-
-    def months(self) -> list[str]:
-        return sorted(p.stem for p in self.dir.glob("*.parquet")) if self.dir.exists() else []
-
-    def last_time(self) -> pd.Timestamp | None:
-        for month in reversed(self.months()):
-            df = self.read_month(month)
-            if len(df):
-                return pd.Timestamp(df["time_utc"].max())
-        return None
-
-    def times_since(self, since: pd.Timestamp) -> pd.Series:
-        frames = [self.read_month(m) for m in self.months() if m >= since.strftime("%Y-%m")]
-        frames = [f for f in frames if len(f)]
-        if not frames:
-            return pd.Series([], dtype="datetime64[ns, UTC]")
-        t = pd.concat(frames)["time_utc"]
-        return pd.Series(sorted(t[t >= since].unique()))
-
-    def add(self, rows: pd.DataFrame) -> int:
-        """Merge rows into the store; returns how many rows (new keys or new versions) were written."""
-        if rows.empty:
-            return 0
-        written = 0
-        months = rows["time_utc"].dt.strftime("%Y-%m")
-        for month, part in rows.groupby(months):
-            existing = self.read_month(month)
-            add = merge_versions(existing, part)
-            if add.empty:
-                continue
-            out = pd.concat([f for f in (existing, add) if len(f)], ignore_index=True)
-            out = out.sort_values(KEY + ["version"], ignore_index=True)
-            write_parquet_atomic(out, self._path(month))
-            written += len(add)
-        return written
 
 
 # --------------------------------------------------------------------------- gap log
@@ -542,7 +453,7 @@ class Collector:
     def run_series(self, product: Product) -> None:
         if not self._due(product):
             return
-        store = SeriesStore(self.root, product.dataset)
+        store = SeriesStore(self.root, product.dataset, NORMALIZED_COLUMNS)
         last_before = store.last_time()
         short = self._ingest_series(product, product.path, store)
         if short is not None:
