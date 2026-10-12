@@ -24,10 +24,10 @@ the request patterns from there; do not copy those files into the store without 
 ## Status (checked 2026-10-12 00:30 UTC)
 
 Update this section whenever a build-order step starts or finishes, or the collector's health changes.
-- Step 1 done: `sources/noaa_swpc.py`. Scheduled every 30 min since 2026-10-11 20:37 UTC: 7 runs to 23:37, 0 failed
-  fetches; gap log holds only source-side `no_data` intervals and the two 404s from the retired
+- Step 1 done: `sources/noaa_swpc.py`. Scheduled every 30 min since 2026-10-11 20:37 UTC: 9 runs to 00:37 on 10-12
+  (past midnight too), 0 failed fetches; gap log holds only source-side `no_data` intervals and the two 404s from the retired
   `products/solar-wind/*` files. Coverage starts: solar_wind, kp_3h and GOES protons 2026-10-04 (7-day backfill),
-  ACE 1h 2026-09-11, RTSW 2026-10-10 17:38, kp_1m 2026-10-11 11:39. Re-check that runs continue past midnight.
+  ACE 1h 2026-09-11, RTSW 2026-10-10 17:38, kp_1m 2026-10-11 11:39.
 - Step 2 done 2026-10-11/12: `gfz_kp` 1932-01-01 to 2026-10-10 (692,340 rows; Kp `def` to 2026-09-30),
   `gfz_hp30` 1985-01-01 to 2026-10-10 (1,464,768 rows), no gaps in Kp, ap or Hp30; `omni2_hourly` 1963 to
   2026-10-11 (26,276,760 rows, 47 quantities; field to 09-18, plasma to 09-29, Dst to 10-05). GFZ Kp matches the
