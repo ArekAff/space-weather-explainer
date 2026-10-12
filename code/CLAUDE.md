@@ -5,8 +5,8 @@ Two parts with one contract between them:
   tables and the text corpus. See `ingestion/CLAUDE.md`.
 - `platform/`: the system itself. Reads only what ingestion wrote, never the network. See `platform/CLAUDE.md`.
 
-`ingestion/` holds the NOAA SWPC live collector (since 2026-10-11); `platform/` has no code yet. Follow the layout
-below and update this file if you have to deviate.
+`ingestion/` holds the NOAA SWPC live collector (since 2026-10-11) and the GFZ and OMNI2 history collectors
+(since 2026-10-11); `platform/` has no code yet. Follow the layout below and update this file if you have to deviate.
 
 ## Layout
 
@@ -61,6 +61,8 @@ Root directory: env var `SWX_DATA_DIR`, default `<repo>/data/` (git-ignored). La
 
 Required columns in every normalised table: `time_utc`, `quantity`, `value`, `unit`, `source`, `status`,
 `retrieved_at`, `source_file`. Text documents also carry `issued_at`, `issued_precision`, `is_retrospective`.
+Historical tables (`gfz_kp`, `gfz_hp30`, `omni2_hourly`) add `status_basis`, the reason for each `status`; their
+`time_utc` is the start of the averaging interval (3 h Kp, 30 min Hp30, 1 h OMNI2, UT day for daily indices).
 Changing a column or path is a contract change: update this table, both parts, and their tests in the same change.
 
 ## Rules for all code

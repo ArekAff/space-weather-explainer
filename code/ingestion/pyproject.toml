@@ -11,6 +11,8 @@ dependencies = [
 
 [project.scripts]
 swx-noaa-live = "swx_ingest.sources.noaa_swpc:main"
+swx-gfz = "swx_ingest.sources.gfz:main"
+swx-omni = "swx_ingest.sources.omni:main"
 
 [build-system]
 requires = ["hatchling"]
