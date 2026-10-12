@@ -27,10 +27,7 @@ answer. Grouped by where the answer will come from.
   always-on machine for full continuity of alerts and texts.
 - Use of the 7 storms marked SPORNE (catalogues disagree): score against Richardson–Cane, or exclude them and say so.
 - Which LLM and embedding model to use, and whether to pin their versions for the whole evaluation.
-- Where variant B's shock flag comes from (readiness audit, 2026-10-12). DONKI IPS catalogue entries appear a median
-  77 h after the shock (05/2024; the 2024-05-10 shock got its entry 4.3 days later), so the time gate hides them at
-  t0; the real-time IPS alert came 25 min after that shock. Options: alerts (on time, text) or entries (mostly
-  missing at t0). Touches the wording of invariant 2.
+- Resolved 2026-10-12 (Arek): B's shock flag comes from DONKI IPS alerts; see `decisions.md`.
 - Whether variant A needs >10 MeV proton flux for 2020-03 – 2026-10 (TEST radiation storms such as 2026-01-19). No
   source tested yet; the GOES archive at NCEI is the likely candidate.
 
@@ -48,8 +45,8 @@ answer. Grouped by where the answer will come from.
 - One TEST storm (2026-08-18) falls after the end of the Richardson–Cane list, so its cause key rests on DONKI
   (weakened key).
 - The G3 storm of 2026-10-10 (GFZ nowcast Kp 7+ at 15:00 UTC) is missing: the build read Kp only to 2026-10-09.
-  Rebuilding with `normalized/gfz_kp` adds it to TEST and fills Kp for J160; it changes the event set, so it needs
-  Arek's OK.
+  Rebuilding with `normalized/gfz_kp` adds it to TEST and fills Kp for J160. Approved by Arek 2026-10-12; the
+  event-set thread runs it.
 - Resolved 2026-10-11: the 3 period entries were replaced by 29 rtgms.pl episodes (J132–J160); see `decisions.md`.
 - Time zone of rtgms.pl times (UTC or Polish time) is unconfirmed; it shifts t0 of J132–J160 by up to 2 h. Kp is
   checked from alarm start minus 2 h, so the Kp-based labels do not depend on it.

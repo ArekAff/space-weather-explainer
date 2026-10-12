@@ -37,8 +37,8 @@ moment (detected or user-marked, with t0)
 - Event set: only `id`, `t0_utc` and `stacja` may reach the system; `zbior` and `okres_korpusu` only select and group
   runs. Every other column is answer key or describes what happened after t0.
 - DONKI catalogue entries arrive late (05/2024 IPS: median 77 h after the shock; 2012 entries: 1.2–11 years later),
-  so under the gate B sees almost no catalogue for P1 events. Real-time notifications carry `messageIssueTime`. Where
-  B's shock flag comes from is open (`docs/open_questions.md`).
+  so under the gate B sees almost no catalogue for P1 events. B's shock flag comes from IPS alerts (notifications,
+  gated on `messageIssueTime`; decision 2026-10-12).
 - Coverage of the 72 h before t0: Kp and Hp30 complete for all 157 events, solar wind at least 90 % for 146. The
   readiness audit lists the 11 others: https://claude.ai/code/artifact/86adc040-9fb4-46d0-8978-736e84f031b2
 
@@ -49,7 +49,7 @@ moment (detected or user-marked, with t0)
   data-quality flags and later forecast misses.
 - Analogues: the windows' continuation must end before t0. Use driver features, not Kp shape alone. Variant A matches
   on numeric features only (Kp/Hp30, solar wind speed, density, Bz; a shock detected from these numbers is numeric).
-  B and C add DONKI filters (shock from IPS, CME speed, driver type) through the time gate. Benchmarks: A, climatology
+  B and C add DONKI filters (shock from IPS alerts, CME speed, driver type) through the time gate. Benchmarks: A, climatology
   by onset level (Brier skill 0.095); B and C, climatology by level + shock flag (0.131 with SSC; re-measure with IPS).
   Report skill scores against climatology and persistence, never raw accuracy.
 - Retrieval: chunk along product sections (Forecast Discussion and RSGA sections, one DONKI notification per chunk,

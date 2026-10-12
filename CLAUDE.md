@@ -25,7 +25,8 @@ Invariants. Breaking one silently invalidates the thesis:
 1. **The answer key never reaches the system.** Richardson–Cane ICME list, SSC list (ISGI/Ebre), NOAA proton-event
    list (NGDC), effect data (IGS TEC/ROTI, EPN, orbital elements), GUGiK notices about specific jamming cases, and
    case-study papers about test events are used only by evaluation code.
-2. **Shock-arrival feature comes from DONKI IPS**, never from SSC (SSC is answer key).
+2. **Shock-arrival feature comes from DONKI IPS real-time alerts** (notifications, by `messageIssueTime`), never from
+   SSC (SSC is answer key). IPS catalogue entries usually appear after t0.
 3. **Time cut-off.** A document or catalogue entry is visible for event *e* only if `issued_at <= t0(e)`. Publication
    time counts, not the period described. Date-only timestamps count as 23:59 UTC. This applies to catalogues in B
    and C too (DONKI `submissionTime`), not only to RAG.

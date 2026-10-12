@@ -66,3 +66,13 @@ an earlier one and over any snapshot document in `docs/`. Only Arek decides; age
   gate: shock (IPS), CME speed, driver type. The GO report already labels the shock flag as knowledge (§4.3). Its
   0.131 benchmark used SSC, now answer key, so re-measure it with DONKI IPS; A's benchmark is climatology by onset
   level (0.095). Affects: `CLAUDE.md` (variant rows A and B, key numbers), `code/platform/CLAUDE.md` (analogues).
+
+## 2026-10-12
+
+- **B's shock flag comes from DONKI's real-time IPS alerts (notifications, gated on `messageIssueTime`), not from IPS
+  catalogue entries (Arek: "on time").** The readiness audit found IPS entries appear a median 77 h after the shock
+  (05/2024; the 2024-05-10 shock 4.3 days later) and years later before 2020, so the time gate hides them at t0; the
+  alert for the 2024-05-10 shock came 25 min after it. Catalogue entries stay usable through the gate on
+  `submissionTime`. Affects: `CLAUDE.md` invariant 2, `code/platform/CLAUDE.md`, `code/ingestion/CLAUDE.md`.
+- **Rebuild the event set with `normalized/gfz_kp` (Arek: yes).** Adds the missing G3 storm of 2026-10-10 to TEST
+  and fills Kp for J160. Run by the event-set thread, which keeps both copies of the set in sync.

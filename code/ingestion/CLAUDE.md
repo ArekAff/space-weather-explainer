@@ -96,7 +96,7 @@ Run: `cd code; uv run swx-gfz` (whole Kp file, 5.5 MB, and Hp30 file, 44 MB) and
   2026-10-11). The API returns only the latest version, so archive every pull to keep revisions. Entries arrive late:
   2012 entries were submitted 1.2–11 years after the event, 05/2024 IPS entries a median 77 h after the shock.
   `get/notifications?type=all` reaches back to 2010-04-05, weekly reports included, with `messageIssueTime` to the
-  minute; alerts are on time (IPS alert 25 min after the 2024-05-10 shock). Windows of at most 60 days. Bulk CME
+  minute; alerts are on time (IPS alert 25 min after the 2024-05-10 shock) and are B's shock-flag source. Windows of at most 60 days. Bulk CME
   pulls are large (10,266 CMEs for 2010–2026).
 - NOAA proton events (NGDC list): current to 2026-07-30, has known date typos (see the manifest). The correction in
   `docs/zrodla_danych/weryfikacja_maila.md` claiming the list ends in 2011 is wrong (see `docs/decisions.md`).
