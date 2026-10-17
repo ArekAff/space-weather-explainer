@@ -39,7 +39,7 @@ moment (detected or user-marked, with t0)
 - DONKI catalogue entries arrive late (05/2024 IPS: median 77 h after the shock; 2012 entries: 1.2–11 years later),
   so under the gate B sees almost no catalogue for P1 events. B's shock flag comes from IPS alerts (notifications,
   gated on `messageIssueTime`; decision 2026-10-12).
-- Coverage of the 72 h before t0: Kp and Hp30 complete for all 157 events, solar wind at least 90 % for 146. The
+- Coverage of the 72 h before t0: Kp and Hp30 complete for all 157 v2 events, solar wind at least 90 % for 146 (checked before B161 was added). The
   readiness audit lists the 11 others: https://claude.ai/code/artifact/86adc040-9fb4-46d0-8978-736e84f031b2
 
 ## Component notes
@@ -64,7 +64,7 @@ moment (detected or user-marked, with t0)
 
 ## Evaluation rules
 
-- Event set: `docs/metodologia/zestaw_zdarzen_ewaluacja.csv` (v2: 157 events, 96 DEV / 61 TEST; May 2026 jamming J132–J139 are DEV, `zbior` = DEV/TEST, `t0_utc`,
+- Event set: `docs/metodologia/zestaw_zdarzen_ewaluacja.csv` (v3: 158 events, 96 DEV / 62 TEST; May 2026 jamming J132–J139 are DEV, `zbior` = DEV/TEST, `t0_utc`,
   `okres_korpusu`). Develop on DEV. TEST runs once, at the end, with Arek's go-ahead.
 - Accuracy: cause class accuracy and F1 (CME / high-speed stream / radiation / not space weather) against
   Richardson–Cane; onset time error against SSC; effect agreement against TEC/ROTI and orbit decay; share of jamming
