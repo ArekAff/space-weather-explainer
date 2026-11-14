@@ -59,11 +59,23 @@ Full rationale: `docs/README.md` (index), decisions in `docs/decisions.md`, unre
 | `code/` | All application code (see `code/CLAUDE.md`) | Create and edit |
 | `code/ingestion/` | Data ingestion pipeline: collectors, raw archive, normalised tables, corpus | Create and edit |
 | `code/platform/` | The system: detection, analogues, catalogues, RAG, incident-type decision, evaluation | Create and edit |
-| `docs/` | Reference documents copied from the Claude project (mostly Polish) plus decision log | Read; append to `decisions.md` / `open_questions.md` |
+| `data/` | Data store written by the collectors (git-ignored; contract in `code/CLAUDE.md`) | Write only through `code/ingestion` |
+| `evaluation/` | What the system is scored against: evaluation event set, its rules, inputs and build scripts (see `evaluation/CLAUDE.md`) | Read; change only when Arek asks |
+| `thesis/` | Thesis text (Polish), private and git-ignored: table of contents, its sources, LaTeX drafts in `thesis/latex/` (see `thesis/CLAUDE.md`) | Edit only when Arek asks; never commit or publish |
+| `docs/` | Project knowledge: decision log, open questions, plans, dated reference documents (mostly Polish) | Read; append to `decisions.md` / `open_questions.md` |
+| `knowledge/` | What the thesis rests on (see `knowledge/CLAUDE.md`): `advisor/` private correspondence, `sources/` article PDFs with `sources_index.md`, `findings/` dated notes on what was found out | Add findings and index rows; `advisor/` and the PDFs are git-ignored and read only |
 | `dataset_research/` | Exploratory research from Oct 2026 (domain choice, sanity checks, first downloads) | Read only |
 | `dataset_research/space_weather_decision/` | GO decision report, catalogues downloaded 2026-10-10, backtests | Read only; `data/MANIFEST_D*.md` give provenance |
-| `maile_surma/` | Advisor e-mails (PDF) | Read only |
-| `README.md`, `main.py`, `pyproject.toml` | Arek's root files (uv project stub) | Do not edit unless Arek asks |
+| `README.md` | The map of the repo for people | Keep it in step with this table |
+
+Each folder type follows published conventions (sources and deliberate exceptions: `docs/repository_conventions.md`).
+New files follow them: lower_snake_case names, ISO dates (`YYYY-MM-DD`) in dated file names, a `README.md` row for
+every new file in a top-level folder.
+
+Paths that automation depends on (do not move or rename without re-registering the task and re-running the checks in
+`code/ingestion/CLAUDE.md`): `code/ingestion/scripts/noaa_live_task.cmd` (absolute path stored in Windows Task
+Scheduler), the depth of `code/ingestion/src/swx_ingest/store.py` below the repo root (default data dir), `data/`,
+and the depth of `evaluation/event_set/` (the build script finds `data/normalized/gfz_kp` two levels up).
 
 Key numbers from `dataset_research/space_weather_decision/README.md` that the code should reproduce or beat:
 100 % of G3+ storms 2010–2026 have a catalogued cause (random windows 32 %); Kp-only analogues add no skill over
@@ -82,13 +94,21 @@ shock (DONKI IPS), CME speed and driver type only in C and C-decision.
   or the script and show the evidence. Say plainly what you did not verify.
 - **Stop and ask** before touching an invariant above, adding a data source, changing the event set, or doing anything
   that costs money or is hard to undo (bulk downloads of many GB, deleting data, publishing anything).
+- **Record what you find.** Before the final message, write anything a later session would have to rediscover
+  into `knowledge/findings/` (one dated note, template in its `README.md`). Knowledge must not get lost (Arek).
 - **Never invent** URLs, endpoints, dataset IDs, numbers or citations. Mark anything not tried as "untested".
 - **Language.** Code, comments, commit messages, logs and these CLAUDE.md files: English. Anything for the advisor or
   the thesis text: Polish. End-user explanations from the platform: Polish, with quoted sources in the original
   language (usually English).
+- **What may be public.** The GitHub repo is public. Code and project docs may be pushed; the thesis text
+  (`thesis/`), advisor correspondence (`knowledge/advisor/`) and article files (`knowledge/sources/`) may not
+  (Arek, 2026-11-14). They are git-ignored: never force-add them, and do not copy thesis passages, chapter text
+  or the table of contents into a tracked file.
 - **Secrets.** Never write credentials into the repo. Earthdata uses `C:\Users\areka\_netrc`; other keys come from
   environment variables. Space-Track data may not be redistributed: keep raw TLEs out of anything shared.
-- **Python 3.14 only**, enforced through `.python-version` and `requires-python` (details in `code/CLAUDE.md`).
+- **Python 3.14 only, and uv only inside `code/`** (Arek, 2026-11-14). The repo root holds no `pyproject.toml`,
+  lockfile or virtual environment: never run `uv init`, `uv add` or `uv sync` outside `code/`. The pin is enforced
+  through `code/.python-version` and `requires-python` (details in `code/CLAUDE.md`).
 - **Machine.** Windows laptop, repo inside OneDrive. Use `pathlib`, no hard-coded separators. Long-running jobs run
   via Windows Task Scheduler. If OneDrive sync interferes with data files, point `SWX_DATA_DIR` at a
   non-synced folder (see `code/CLAUDE.md`).

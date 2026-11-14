@@ -156,7 +156,7 @@ Historical series (input)
 - [ ] A >10 MeV proton-flux series for 2020-03 – 2026-10 for variant A (OMNI2 protons end 2020-03-04); no source tested
 
 Test event set
-- [x] G3+ storms since 2010, G1–G2 sample and quiet days (done: `metodologia/zestaw_zdarzen_ewaluacja.csv`)
+- [x] G3+ storms since 2010, G1–G2 sample and quiet days (done: `evaluation/event_set/zestaw_zdarzen_ewaluacja.csv`)
 - [ ] OMNI 1-min (HRO) for those storm windows (HAPI `OMNI_HRO_1MIN`, 1981 – 2026-09-30, has SYM-H and AE)
 - [ ] Rebuild the event set with `gfz_kp`: adds the G3 storm of 2026-10-10 (missing) and Kp for J160; needs Arek's OK
 

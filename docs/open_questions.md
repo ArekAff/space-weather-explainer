@@ -110,7 +110,7 @@ answer. Grouped by where the answer will come from.
 - Which decision model if not Jev, and which classic LLM (extends the existing LLM question above).
 - Incident types without a confirmed source (draft types 1.3, 1.4, 3.2, 3.3, 4.1 and class 5 "GNSS satellites"):
   keep searching or drop.
-- Table of contents v2 (`praca_magisterska/spis_tresci.md`), name "model decyzyjny": TypeSafe asks to call Jev a
+- Table of contents v2 (`thesis/spis_tresci.md`), name "model decyzyjny": TypeSafe asks to call Jev a
   "System One model", not a "decision model" (blog post 2026-11-03,
   https://typesafe.ai/blog/dont-call-it-a-decision-model). The title and ToC 3.3, 4.3, 5.4 say "model decyzyjny".
   Keep, rename, or explain in 3.3? Possibly a question for the advisor.

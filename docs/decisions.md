@@ -141,3 +141,56 @@ an earlier one and over any snapshot document in `docs/`. Only Arek decides; age
   test-event section 4.4 (Arek, 2026-11-13: "lets add it"). Wording: the heading „Przetwarzanie danych” from a
   reference thesis plus the advisor's term from the chapter title.
 - The rest of version 2 is a proposal until Arek confirms it; its open points are in `open_questions.md`.
+
+## 2026-11-14 (repository reorganized by function; Arek's request, layout proposed by the agent)
+
+- **Top-level folders by function** (Arek: "split it into different folder fucntions"): `code/`, `data/`,
+  `evaluation/`, `thesis/`, `knowledge/`, `docs/`, `dataset_research/`. The layout is the agent's proposal and stays
+  until Arek changes it. `code/`, `data/` and `dataset_research/` did not move, so the scheduled NOAA task and the
+  collectors use the same paths as before.
+- **`knowledge/` is the place where knowledge is kept so it does not get lost** (Arek: "a directory where i would
+  put all emails from my promotor and also another folder for pdf exports of all articles usefull sources which i
+  can read cite etc. and also update from agent finidings so knowledge doesnt generaly get lost"): `advisor/`
+  (correspondence), `sources/` (article PDFs plus `sources_index.md`), `findings/` (one dated note per finding).
+  Agents write a finding note in the same session (root `CLAUDE.md`, "How to work here").
+- **Article PDFs and advisor correspondence are not pushed to GitHub** (the repository is public and the articles
+  are under their publishers' copyright; Arek: "i dont want to tack it"). Only the index and the folder guides
+  are tracked.
+- **The thesis is not public on GitHub; code is** (Arek: "i also dont want the thesis te be public on the github,
+  code is fine"). `thesis/` is git-ignored except its `README.md` and `CLAUDE.md`. Checked the same day: no
+  thesis, advisor, PDF or presentation file was ever committed, locally or on `origin`.
+- **Thesis-related details in project docs stay as they are** (Arek chose "1" = leave it, 2026-11-14): the
+  working title, chapter-heading notes and the design documents in `docs/` and `CLAUDE.md` are project notes, not
+  the thesis, and may be pushed. Rejected: stripping the new title and headings from tracked files; making the
+  GitHub repo private.
+- **uv is used only in `code/`** (Arek: "i want to use uv in the project but only in code part of everything").
+  The `uv init` stub in the repo root was removed: `main.py`, `pyproject.toml`, `uv.lock`, `.python-version` and
+  the empty `.venv`. The tracked four can be restored from git history. Supersedes the 2026-10-11 lines that name
+  the root `.python-version` and `pyproject.toml`; the pin is now `code/.python-version`.
+- **`maile_surma.pdf` keeps its name** (Arek: "thats good lets keep i[t]").
+- **Path mapping.** Entries above this one and the snapshot documents use the old paths:
+
+  | Old path | New path |
+  |---|---|
+  | `docs/metodologia/zestaw_zdarzen_*`, `rtgms_*`, `donki_*` | `evaluation/event_set/` (same file names) |
+  | `docs/metodologia/z_czym_porownac.md` | unchanged |
+  | `docs/praca_magisterska/` | `thesis/` |
+  | `docs/email_promotor/` | `knowledge/advisor/emails_to_advisor/` |
+  | `maile_surma/DD.MM.YYYY.pdf` | `knowledge/advisor/email_threads/YYYY-MM-DD.pdf` |
+  | `maile_surma/maile_surma.pdf` | `knowledge/advisor/email_threads/maile_surma.pdf` |
+  | `maile_surma/Prezentacja_temat_pracy.pptx` | `knowledge/advisor/presentations/` |
+
+- **Each folder type follows published conventions**, listed with sources and deliberate exceptions in
+  `repository_conventions.md` (Arek: "look for the best practices in the web for all types identify the types and
+  make them follow best practices"). Added for that: `.gitattributes`, `data/README.md`,
+  `evaluation/event_set/data_dictionary.md`, `thesis/latex/.gitignore` and the LaTeX layout in
+  `thesis/latex/README.md`.
+- Apart from the root stub, no file was deleted. Renamed: only the seven dated PDFs of e-mail threads (to ISO
+  dates). The event-set build was
+  run before and after the move and gave the same CSV.
+- The shared folder of the Claude project still uses the old folder names (`email_promotor`, `metodologia`,
+  `praca_magisterska`).
+- Affects: root `CLAUDE.md` (repository map, "How to work here"), `README.md`, `.gitignore`, `.gitattributes`,
+  `docs/README.md`, `docs/CLAUDE.md`, `docs/claude_md_guide.md`, `docs/repository_conventions.md`,
+  `code/CLAUDE.md`, `code/ingestion/CLAUDE.md`, `code/platform/CLAUDE.md`, and new `CLAUDE.md` and `README.md`
+  files in `evaluation/`, `thesis/`, `knowledge/`, `knowledge/advisor/`, `dataset_research/`, `code/`, `data/`.

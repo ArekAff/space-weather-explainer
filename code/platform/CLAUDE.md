@@ -4,7 +4,7 @@ Turns the data store into a daily early warning (the most probable incident type
 2026-11-13) and evaluates the scenarios. Reads only `normalized/`, `corpus/` and (evaluation
 only) `answer_key/` from the data store in `code/CLAUDE.md`. Never calls a data source over the network.
 
-Design references: `docs/metodologia/z_czym_porownac.md` (variants and metrics), `docs/metodologia/zestaw_zdarzen_zasady.md`
+Design references: `docs/metodologia/z_czym_porownac.md` (variants and metrics), `evaluation/event_set/zestaw_zdarzen_zasady.md`
 (event set and answer key), `docs/rag/projekt_korpusu_rag.md` (corpus, time cut-off, metadata, citations),
 `dataset_research/space_weather_decision/README.md` (what the first experiments showed).
 
@@ -70,7 +70,7 @@ moment (detected or user-marked, with t0)
   scored, and whether the explanation text stays, is open (`docs/open_questions.md`); the metrics below predate that
   decision and still apply to cause and effect keys.
 
-- Event set: `docs/metodologia/zestaw_zdarzen_ewaluacja.csv` (v3: 158 events, 96 DEV / 62 TEST; May 2026 jamming J132–J139 are DEV, `zbior` = DEV/TEST, `t0_utc`,
+- Event set: `evaluation/event_set/zestaw_zdarzen_ewaluacja.csv` (v3: 158 events, 96 DEV / 62 TEST; May 2026 jamming J132–J139 are DEV, `zbior` = DEV/TEST, `t0_utc`,
   `okres_korpusu`). Develop on DEV. TEST runs once, at the end, with Arek's go-ahead.
 - Accuracy: cause class accuracy and F1 (CME / high-speed stream / radiation / not space weather) against
   Richardson–Cane; onset time error against SSC; effect agreement against TEC/ROTI and orbit decay; share of jamming

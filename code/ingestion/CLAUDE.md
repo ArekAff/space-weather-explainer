@@ -109,7 +109,7 @@ Run: `cd code; uv run swx-gfz` (whole Kp file, 5.5 MB, and Hp30 file, 44 MB) and
   symptoms at the station (C/N0, observation counts) are input for jamming cases; ROTI and position error are answer
   key (`answer_key/`). Keep them in separate datasets. Account activation and archive depth are still unchecked.
 - rtgms.pl monitoring pages are a JavaScript app (plain HTTP gets the same 43.9 KB shell for both), so alarms are
-  copied by hand into `docs/metodologia/rtgms_alarmy_2026.csv`. Retention is unknown.
+  copied by hand into `evaluation/event_set/rtgms_alarmy_2026.csv`. Retention is unknown.
 - IGS TEC needs NASA Earthdata (`_netrc`, works since 2026-10-11); use the final product, not rapid. Final GIM and ROTI
   maps (`IGS0OPSFIN_..._GIM.INX.gz`, `..._ROT.INX.gz`) are in `gnss/products/ionex/YYYY/DDD/`. Space-Track works
   too; its data must not be redistributed (under 30 requests a minute, 300 an hour).
