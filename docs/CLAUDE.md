@@ -6,6 +6,9 @@
 - `decisions.md` and `open_questions.md` are the living files. Append to them and keep entries short and dated.
   Only Arek makes decisions; an agent may record a decision Arek stated, quoting him, or propose one in
   `open_questions.md`.
+- `praca_magisterska/` holds living thesis resources. `spis_tresci.md` is the canonical table of contents: change
+  it only when Arek asks, keep the copy in the current advisor e-mail draft identical, and record in
+  `spis_tresci_wzorce.md` which opened source each change follows. Never invent structure or wording (Arek).
 - `data_gathering_plan.md` is living too: when a fetcher works, update that source's entry (endpoint tested, cadence,
   row count, quirks).
 - Thesis-facing text (anything Arek may paste into the thesis or an e-mail to the advisor) is written in Polish.

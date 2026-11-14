@@ -1,25 +1,28 @@
-# space-weather-explainer: real-time space-weather platform with cited, expert-grounded explanations
+# space-weather-explainer: daily space-weather early warning; classic LLM with RAG vs a decision model
 
 SGH master's thesis (Analiza danych – Big Data) by Arek (Arkadiusz Affek), advisor Prof. Surma.
-Working title (PL): „Platforma analizy szeregów czasowych w czasie rzeczywistym z objaśnieniami opartymi na wiedzy
-eksperckiej (RAG) na przykładzie wpływu pogody kosmicznej na pozycjonowanie GNSS i pracę satelitów”.
+Working title (PL, proposed 2026-11-13): „Wczesne ostrzeganie o zagrożeniach pogody kosmicznej dla systemów
+satelitarnych: analiza porównawcza modelu językowego z RAG i modelu decyzyjnego”.
 
-The platform watches space-weather time series, detects unusual moments (or takes a moment the user marks), finds
-similar past situations and what followed, links the moment to catalogued causes, retrieves expert texts from that
-time (RAG), and writes an explanation in which every claim cites a source. Users: precision GNSS positioning
-(mainly precision agriculture in Poland) and satellite operators.
+The platform monitors the space-weather situation (not the satellites) with real-time data analysis. Once a day it
+issues an early warning: the most probable incident type, from a predefined catalogue modelled on cybersecurity
+incident taxonomies, that the situation could cause for satellites and GNSS positioning. Users: precision GNSS
+positioning (mainly precision agriculture in Poland) and satellite operators. In Polish thesis text say „analiza
+danych czasu rzeczywistego”, never „szereg czasowy” (advisor).
 
 ## Research design (do not change without Arek's explicit OK)
 
-Research question: does real-time data analysis plus expert knowledge (catalogues and RAG) give more accurate and
-better documented explanations than numeric data alone? Same events, variants differ only in knowledge access:
+Research question (2026-11-13): picking the most probable incident type from the catalogue, how do a classic LLM
+with RAG and a decision model of the "System One" kind compare on cost, quality and time? Simple comparison, no
+hybrid approaches (advisor). Same events in every scenario:
 
-| Variant | Gets | Role |
-|---|---|---|
-| A | Numeric series + detected anomalies; analogues on numeric features only | Baseline from the research question |
-| B | A + DONKI catalogues (structured fields incl. SEP proton events; shock, CME speed and driver type also filter analogues) | Separates the catalogue effect from RAG |
-| C | B + RAG over expert texts, with citations | The platform |
-| D (optional) | NOAA forecaster's own text | External ceiling, only from 03/2024 |
+| Scenario | Gets | Decides | Role |
+|---|---|---|---|
+| A | Numeric data + detected anomalies; analogues on numeric features only | Classic LLM | Baseline |
+| C | A + DONKI catalogues (structured fields incl. SEP; shock, CME speed and driver type also filter analogues) + RAG over expert texts, with citations | Classic LLM | The platform |
+| C-decision | Same knowledge as C | Decision model (e.g. Jev, TypeSafe AI; need not be Jev) | Does the decision model improve the platform? |
+
+Variant B is dropped (advisor, 2026-11-13). Whether optional D (NOAA forecaster text) stays is open.
 
 Invariants. Breaking one silently invalidates the thesis:
 1. **The answer key never reaches the system.** Richardson–Cane ICME list, SSC list (ISGI/Ebre), NOAA proton-event
@@ -28,8 +31,8 @@ Invariants. Breaking one silently invalidates the thesis:
 2. **Shock-arrival feature comes from DONKI IPS real-time alerts** (notifications, by `messageIssueTime`), never from
    SSC (SSC is answer key). IPS catalogue entries usually appear after t0.
 3. **Time cut-off.** A document or catalogue entry is visible for event *e* only if `issued_at <= t0(e)`. Publication
-   time counts, not the period described. Date-only timestamps count as 23:59 UTC. This applies to catalogues in B
-   and C too (DONKI `submissionTime`), not only to RAG.
+   time counts, not the period described. Date-only timestamps count as 23:59 UTC. This applies to catalogues in C
+   and C-decision too (DONKI `submissionTime`), not only to RAG.
 4. **DONKI notes before 06/2020 were added retroactively**: mark `is_retrospective = true`; excluded in the main mode.
 5. **DEV/TEST split.** TEST = events from 2025-01-01, except the May 2026 rtgms.pl jamming episodes (J132–J139),
    which are DEV (62 of 158 in TEST, 96 in DEV). Tune prompts, thresholds and retrieval on DEV only;
@@ -55,7 +58,7 @@ Full rationale: `docs/README.md` (index), decisions in `docs/decisions.md`, unre
 |---|---|---|
 | `code/` | All application code (see `code/CLAUDE.md`) | Create and edit |
 | `code/ingestion/` | Data ingestion pipeline: collectors, raw archive, normalised tables, corpus | Create and edit |
-| `code/platform/` | The system: detection, analogues, catalogues, RAG, explanations, evaluation | Create and edit |
+| `code/platform/` | The system: detection, analogues, catalogues, RAG, incident-type decision, evaluation | Create and edit |
 | `docs/` | Reference documents copied from the Claude project (mostly Polish) plus decision log | Read; append to `decisions.md` / `open_questions.md` |
 | `dataset_research/` | Exploratory research from Oct 2026 (domain choice, sanity checks, first downloads) | Read only |
 | `dataset_research/space_weather_decision/` | GO decision report, catalogues downloaded 2026-10-10, backtests | Read only; `data/MANIFEST_D*.md` give provenance |
@@ -66,7 +69,7 @@ Key numbers from `dataset_research/space_weather_decision/README.md` that the co
 100 % of G3+ storms 2010–2026 have a catalogued cause (random windows 32 %); Kp-only analogues add no skill over
 climatology by onset level (Brier skill 0.095); adding a shock flag gives 0.131 (measured with SSC, now answer key;
 re-measure with DONKI IPS). Analogues must use driver features, not Kp shape alone: solar wind in every variant;
-shock (DONKI IPS), CME speed and driver type only in B and C.
+shock (DONKI IPS), CME speed and driver type only in C and C-decision.
 
 ## How to work here
 

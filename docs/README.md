@@ -8,7 +8,9 @@ Originals are in Polish unless noted. Later corrections live in `decisions.md`, 
 
 | Task | Read |
 |---|---|
-| Understand the thesis concept, data and variants as sent to the advisor | `email_promotor/odpowiedz_prof_surma_final.txt` (PL) |
+| Understand the thesis concept as of 2026-11-13 (scenarios, incident catalogue, title, milestones) | `decisions.md`, entry 2026-11-13; draft catalogue and papers: https://claude.ai/artifact/Du7BQy5kG4i5y9ecmM6WBU |
+| Use or change the thesis table of contents (working version 2, 2026-11-13) and see which SGH rules, theses and papers each heading follows | `praca_magisterska/spis_tresci.md` (PL, canonical), `praca_magisterska/spis_tresci_wzorce.md` (PL) |
+| Understand the original concept, data and variants as sent to the advisor (Oct 2026; B and the framing are superseded) | `email_promotor/odpowiedz_prof_surma_final.txt` (PL) |
 | Decide what to compare and how to score explanations | `metodologia/z_czym_porownac.md` (PL) |
 | Work with the evaluation events, DEV/TEST split, answer key, t0 | `metodologia/zestaw_zdarzen_zasady.md` (PL), `metodologia/zestaw_zdarzen_ewaluacja.csv` |
 | Rebuild the event set | `metodologia/zestaw_zdarzen_build.py` (args: path to `dataset_research/space_weather_decision`, output CSV file or folder, optional rtgms alarms CSV; default `metodologia/rtgms_alarmy_2026.csv`) |
