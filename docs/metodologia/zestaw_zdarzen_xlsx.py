@@ -19,6 +19,7 @@ COLS = [  # (kolumna, nagłówek, szerokość, opis)
     ("koniec_utc", "Koniec (UTC)", 16, "Koniec epizodu Kp ≥ 5- (impulsy: +48 h)"),
     ("t0_utc", "t0 (UTC)", 16, "Moment, w którym system ma wyjaśnić zdarzenie (tryb real time): burze = początek + 3 h (pierwsza dostępna wartość Kp). Odcięcie wiedzy: issued_at ≤ t0"),
     ("kp_max", "Kp max", 7, "Maksymalny Kp w oknie (GFZ)"),
+    ("kp_wstepne", "Kp wstępne", 8, "tak = w oknie zdarzenia są wartości Kp wstępne GFZ (od 2026-10-01; pomarańczowe). Po publikacji wartości ostatecznych uruchomić skrypt ponownie i sprawdzić Kp i poziom"),
     ("poziom", "Poziom", 8, "Skala NOAA G (Kp 5 = G1 … 9o = G5)"),
     ("klucz_przyczyna", "KLUCZ: przyczyna", 30, "Prawidłowa odpowiedź dla klasyfikacji przyczyny"),
     ("klucz_zrodlo", "KLUCZ: źródło", 26, "Richardson-Cane = niezależny klucz. „tylko DONKI” = klucz zależny od wejścia B/C (osłabiony)"),
@@ -64,7 +65,7 @@ for i, row in enumerate(d.itertuples(index=False), 2):
         if rd["zbior"] == "TEST":
             cell.fill = test_fill
         if (c == "klucz_przyczyna" and ("niejednoznaczna" in str(v) or "SPRAWDZIĆ" in str(v))) or \
-           (c == "uwagi" and "SPRAWDZIĆ" in str(v)) or \
+           (c == "uwagi" and "SPRAWDZIĆ" in str(v)) or (c == "kp_wstepne" and v == "tak") or \
            (c in ("skutek_zrodlo", "skutek_status") and "DO SPRAWDZENIA" in str(rd["skutek_status"])):
             cell.fill = PatternFill("solid", fgColor="F4B084")
             cell.font = Font(bold=True)
@@ -116,7 +117,7 @@ lg.column_dimensions["B"].width = 120
 
 zr = wb.create_sheet("Źródła")
 SRC = [
-    ("Kp, ap (GFZ Potsdam / CelesTrak)", "results/kp_ap_Ap_SN_F107_daily_1957-10-01_to_2026-10-09_merged.csv.gz; epizody burz: results/storm_events_kp_1957_2026_with_catalogue_links.csv", "do 2026-10-09 (od 2026-10-01 wartości wstępne)"),
+    ("Kp, ap (GFZ Potsdam / CelesTrak)", "results/kp_ap_Ap_SN_F107_daily_1957-10-01_to_2026-10-09_merged.csv.gz; epizody burz: results/storm_events_kp_1957_2026_with_catalogue_links.csv; od 2026-10-10: data/normalized/gfz_kp/*.parquet (ostatnia wersja każdego przedziału)", "do 2026-10-10 (od 2026-10-01 wartości wstępne, kolumna „Kp wstępne”); losowanie zamrożone na danych do 2026-10-09"),
     ("Lista ICME Richardson i Cane", "data/richardson_cane_icme_1996_to_2026.csv (rewizja 23.07.2026, DOI 10.7910/DVN/C2MHTH)", "zaburzenia do 2026-07-03; burze po 07/2026 bez klucza R-C"),
     ("Lista SSC/SI (ISGI / Ebre)", "data/isgi_ssc_1957_to_2026.csv", "do 2026-08-11; od 2024 wartości wstępne"),
     ("NASA DONKI GST, CME, IPS (nowe API ccmc.gsfc.nasa.gov/DONKI-API)", "data/donki_gst_…csv, donki_cme_linked_to_gst.csv, donki_ips_earth_…csv", "2010-04 – 2026-10-09; wpisy sprzed 06/2020 dodane retrospektywnie"),
@@ -132,6 +133,7 @@ SRC = [
     ("Nauka w Polsce: prof. Figurski (10.09.2026)", "https://naukawpolsce.pl/aktualnosci/news,114756,prof-figurski-skala-zaklocen-gnss-w-2026-r-jest-bezprecedensowa-w-historii", ""),
     ("Euronews (25.08.2026)", "https://www.euronews.com/my-europe/2026/08/25/phones-drones-and-ships-running-blind-as-gps-malfunctions-across-poland", ""),
     ("Alarmy rtgms.pl WIKO i BRWO (odczyt ręczny Arka)", "rtgms_alarmy_2026_surowe.txt (tekst), rtgms_alarmy_2026.csv (78 okien), rtgms_parse.py", "05–10/2026; rtgms.pl podaje czas polski (wg Arka 11.10.2026), w tabeli przeliczony na UTC"),
+    ("NASA DONKI: uzupełnienie 9–11.10.2026", "donki_uzupelnienie_2026-10.json (z https://ccmc.gsfc.nasa.gov/DONKI-API/get/GST, IPS, CME i SEP, odczyt 12.10.2026)", "fala uderzeniowa 10.10 14:33 UTC, GST 10.10, 3 CME z AR 14549, SEP 1–11.10: brak; zastąpić pełnym pobraniem DONKI"),
     ("NASA DONKI rozbłyski M/X", "donki_flr_mx_2026-05_2026-10.csv (z https://ccmc.gsfc.nasa.gov/DONKI-API/get/FLR, odczyt 11.10.2026)", "do sprawdzenia, czy alarm nie pokrywa się z rozbłyskiem radiowym Słońca"),
     ("rtgms.pl (GUGiK, IŁ-PIB)", "https://www.rtgms.pl/monitoring-medium (statystyki RINEX), https://www.rtgms.pl/monitoring-low (dobowe widma per stacja)", "archiwum wg informacji Arka 11.10.2026; z chmury niedostępne – dni zagłuszania odczytuje Arek"),
     ("ASG-EUPOS – dane RINEX", "https://system.asgeupos.pl/", "pomiar skutku (ROTI, błąd pozycji, C/N0); dodane 11.10.2026 za zgodą Arka; dostęp i zasięg archiwum niesprawdzone"),
