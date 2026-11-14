@@ -1,0 +1,465 @@
+https://www.rtgms.pl/monitoring-low
+zaklocenia dla stacji WIKO, miasto: Wicko
+
+WIKO - 2026 - 06 - 05
+Alarm 2: Zakłocenia
+14:38 - 14:44
+
+WIKO - 2026 - 06 - 18
+Alarm 2: Zakłocenia
+07:54 - 8:03
+
+WIKO - 2026 - 06 - 22
+Alarm 2: Zakłocenia
+14:33 - 14:42
+Alarm wg sygnału
+L1; 0 Brak zakóceń
+L2: 0 Brak zakłóceń
+L5:0 Brak zakłóceń
+E6: 2 Zakłócenia
+
+WIKO - 2026 - 06 - 27
+Alarm 2: Zakłocenia
+23:22 - 23:31
+
+WIKO - 2026 - 07 - 16
+Alarm 2: Zakłocenia
+18:53 - 19:03
+
+WIKO - 2026 - 07 - 18
+Alarm 2: Zakłocenia
+19:17 - 19:25
+
+WIKO - 2026 - 08 - 17
+Alarm 2: Zakłocenia
+06:01 - 06:09
+
+WIKO - 2026 - 08 - 24
+Alarm 2: Zakłocenia
+17:36 - 00:00
+L1; 0 Brak zakóceń
+L2: 0 Brak zakłóceń
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+
+WIKO - 2026 - 08 - 25
+Alarm 2: Zakłocenia
+00:00 - 05:29
+L1; 0 Brak zakóceń
+L2: 0 Brak zakłóceń
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 08 - 25
+Alarm 2: Zakłocenia
+08:33 - 21:10
+L1; 0 Brak zakóceń
+L2: 0 Brak zakłóceń
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 08 - 25
+Alarm 2: Zakłocenia
+21:52 - 00:00
+L1; 0 Brak zakóceń
+L2: 0 Brak zakłóceń
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+00:00 - 05:00
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+07:15 - 08:48
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+09:01 - 09:08
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+09:09 - 09:18
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+09:48 - 10:09
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+10:17 - 10:24
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+10:36 - 10:44
+
+WIKO - 2026 - 08 - 26
+Alarm 2: Zakłocenia
+10:59 - 00:00
+
+WIKO - 2026 - 08 - 27
+Alarm 2: Zakłocenia
+00:00 - 04:52
+
+WIKO - 2026 - 08 - 27
+Alarm 2: Zakłocenia
+05:19 - 05:27
+
+WIKO - 2026 - 08 - 27
+Alarm 2: Zakłocenia
+06:12 - 06:28
+
+WIKO - 2026 - 08 - 27
+Alarm 2: Zakłocenia
+06:30 - 00:00
+
+WIKO - 2026 - 08 - 28
+Alarm 2: Zakłocenia
+00:00 - 12:28
+L1; 0 Brak zakóceń
+L2: 0 Brak zakłóceń
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 08 - 28
+Alarm 2: Zakłocenia
+12:40 - 00:00
+L1; 0 Brak zakóceń
+L2: 2 Zakłócenia
+L5:0 Brak zakóceń
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 08 - 29
+Alarm 2: Zakłocenia
+00:00 - 09:21
+
+WIKO - 2026 - 08 - 29
+Alarm 2: Zakłocenia
+12:01 - 00:00
+
+WIKO - 2026 - 08 - 30
+Alarm 2: Zakłocenia
+00:00 - 09:42
+
+WIKO - 2026 - 08 - 30
+Alarm 2: Zakłocenia
+09:44 - 21:05
+
+WIKO - 2026 - 08 - 30
+Alarm 2: Zakłocenia
+21:13 - 21:20
+
+
+WIKO - 2026 - 08 - 30
+Alarm 2: Zakłocenia
+21:36 - 00:00
+
+WIKO - 2026 - 08 - 31
+Alarm 2: Zakłocenia
+00:00 - 16:42
+
+WIKO - 2026 - 08 - 31
+Alarm 2: Zakłocenia
+17:06 - 17:13
+
+WIKO - 2026 - 08 - 31
+Alarm 2: Zakłocenia
+17:51 - 19:44
+
+WIKO - 2026 - 08 - 31
+Alarm 2: Zakłocenia
+20:37 - 00:00
+
+WIKO - 2026 - 09 - 01
+Alarm 2: Zakłocenia
+00:00 - 05:59
+L1; 0 Brak zakóceń
+L2: 2 Zakłócenia
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 09 - 01
+Alarm 2: Zakłocenia
+10:13 - 00:00
+L1; 0 Brak zakóceń
+L2: 2 Zakłócenia
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 09 - 02
+Alarm 2: Zakłocenia
+00:00 - 00:00
+L1; 0 Brak zakóceń
+L2: 2 Zakłócenia
+L5:2 Zakłócenia
+E6: 0 Brak zakłóceń
+
+WIKO - 2026 - 09 - 03
+Alarm 2: Zakłocenia
+00:00 - 15:57
+
+
+zaklocenia dla stacji BRWO, miasto: Braniewo
+
+BRWO- 2026 - 05 - 08
+Alarm 2: Zakłocenia
+15:26 - 15:38
+
+BRWO- 2026 - 05 - 08
+Alarm 2: Zakłocenia
+15:47 - 16:44
+
+BRWO- 2026 - 05 - 08
+Alarm 2: Zakłocenia
+16:51 - 17:24
+
+BRWO- 2026 - 05 - 08
+Alarm 2: Zakłocenia
+19:29 - 19:46
+
+BRWO- 2026 - 05 - 08
+Alarm 2: Zakłocenia
+20:30 - 20:41
+
+BRWO- 2026 - 05 - 09
+Alarm 2: Zakłocenia
+21:21 - 21:43
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 10
+Alarm 2: Zakłocenia
+05:01 - 05:12
+
+BRWO- 2026 - 05 - 10
+Alarm 2: Zakłocenia
+04:41 - 04:47
+
+BRWO- 2026 - 05 - 10
+Alarm 2: Zakłocenia
+06:32 - 06:38
+
+BRWO- 2026 - 05 - 10
+Alarm 2: Zakłocenia
+07:13 - 07:29
+
+BRWO- 2026 - 05 - 20
+Alarm 2: Zakłocenia
+20:36 - 20:48
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 1 Mozliwe zaklocenia
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 21
+Alarm 2: Zakłocenia
+00:16 - 00:51
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 21
+Alarm 2: Zakłocenia
+01:06 - 01:16
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 21
+Alarm 2: Zakłocenia
+02:24 - 02:32
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 21
+Alarm 2: Zakłocenia
+02:41 - 02:47
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 24
+Alarm 2: Zakłocenia
+00:56 - 01:07
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 24
+Alarm 2: Zakłocenia
+12:45 - 12:57
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 25
+Alarm 2: Zakłocenia
+20:07 - 20:18
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 25
+Alarm 2: Zakłocenia
+20:22 - 20:37
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 05 - 29
+Alarm 2: Zakłocenia
+04:22 - 04:43
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 06 - 05
+Alarm 2: Zakłocenia
+14:38 - 14:45
+
+BRWO- 2026 - 06 - 09
+Alarm 2: Zakłocenia
+01:07 - 01:21
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 06 - 09
+Alarm 2: Zakłocenia
+02:13 - 02:37
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 06 - 09
+Alarm 2: Zakłocenia
+02:45 - 02:57
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 06 - 10
+Alarm 2: Zakłocenia
+09:50 - 10:01
+Alarmy wg sygnalu
+L1: 0 brak zakłóceń
+L2: 2 Zakłócenia
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 06 - 19
+Alarm 2: Zakłocenia
+08:25 - 09:43
+
+BRWO- 2026 - 06 - 19
+Alarm 2: Zakłocenia
+19:05 - 19:14
+
+BRWO- 2026 - 07 - 15
+Alarm 2: Zakłocenia
+17:09 - 17:15
+
+BRWO- 2026 - 08 - 14
+Alarm 2: Zakłocenia
+20:20 - 21:12
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 08 - 14
+Alarm 2: Zakłocenia
+21:21 - 21:38
+Alarmy wg sygnalu
+L1: 0 brak zakłóceń
+L2: 2 Zakłócenia
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 08 - 15
+Alarm 2: Zakłocenia
+20:29 - 21:21
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 08 - 23
+Alarm 2: Zakłocenia
+19:17 - 19:25
+Alarmy wg sygnalu
+L1:  brak zakłóceń
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6: 2 Zakłócenia
+
+BRWO- 2026 - 08 - 31
+Alarm 2: Zakłocenia
+19:48 - 20:01
+Alarmy wg sygnalu
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 09 - 11
+Alarm 2: Zakłocenia
+20:45 - 21:02
+
+BRWO- 2026 - 09 - 11
+Alarm 2: Zakłocenia
+21:20- 21:42
+
+BRWO- 2026 - 09 - 11
+Alarm 2: Zakłocenia
+21:54- 22:07
+
+BRWO- 2026 - 09 - 11
+Alarm 2: Zakłocenia
+22:26- 22:58
+
+
+BRWO- 2026 - 09 - 27
+Alarm 2: Zakłocenia
+12:14- 12:21
+L1: 2 Zakłócenia
+L2: 0 brak zakłóceń
+L5: 0 brak zakłóceń
+E6:0 Brak zakłóceń
+
+BRWO- 2026 - 10 - 10
+Alarm 2: Zakłocenia
+14:41- 14:49

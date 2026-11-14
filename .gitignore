@@ -14,11 +14,26 @@ _netrc
 *.netrc
 CLAUDE.local.md
 
-# Data store written by code/ingestion (see code/CLAUDE.md)
-/data/
+# Data store written by code/ingestion (see code/CLAUDE.md); only its README is tracked
+/data/*
+!/data/README.md
 
-# Advisor correspondence stays private (not on GitHub)
+# Advisor correspondence stays private (the GitHub repo is public); only the two folder guides are tracked
+/knowledge/advisor/*
+!/knowledge/advisor/README.md
+!/knowledge/advisor/CLAUDE.md
+# Article and report files are under their publishers' copyright: keep them off GitHub, track only the index
+/knowledge/sources/*
+!/knowledge/sources/README.md
+!/knowledge/sources/sources_index.md
+# The thesis text stays private (Arek, 2026-11-14); only the two folder guides are tracked
+/thesis/*
+!/thesis/README.md
+!/thesis/CLAUDE.md
+# Former locations of the advisor and thesis files, kept as a guard
+/advisor/
 /maile_surma/
+/docs/praca_magisterska/
 /docs/email_promotor/
 
 # Raw downloaded datasets: keep the SOURCE/MANIFEST notes, re-fetch the data with the scripts

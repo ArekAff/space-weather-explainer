@@ -28,6 +28,12 @@ For Arek and for any agent that edits a CLAUDE.md. Based on Anthropic's Claude C
 | `code/ingestion/CLAUDE.md` | Build order, collector rules, per-source gotchas | < 150 |
 | `code/platform/CLAUDE.md` | Pipeline, variant and time-gate rules, component notes, evaluation rules | < 150 |
 | `docs/CLAUDE.md` | How to treat snapshots vs living docs | < 50 |
+| `evaluation/CLAUDE.md` | Answer-key isolation, which event-set columns the system may see, rebuild and ID rules | < 50 |
+| `thesis/CLAUDE.md` | Rules for the table of contents, thesis wording and LaTeX drafts | < 50 |
+| `knowledge/CLAUDE.md` | Recording findings, the sources index, copyright and privacy of the files | < 50 |
+| `knowledge/advisor/CLAUDE.md` | Privacy of the correspondence, drafts vs sent e-mails | < 50 |
+| `dataset_research/CLAUDE.md` | Read-only archive: what may be reused and how | < 50 |
+| `README.md` in the root and in each top-level folder | The same map for people: what is here, where to start | Short |
 | `docs/*.md` | Long reference material, decisions, open questions | No limit; linked, not loaded |
 
 Include what an agent cannot work out from the code: commands, conventions that differ from defaults, the research
