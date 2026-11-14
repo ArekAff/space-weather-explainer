@@ -13,7 +13,7 @@ Two parts with one contract between them:
 ```
 code/
   pyproject.toml            # uv workspace root (members: ingestion; add platform when it starts)
-  .python-version           # 3.14, repeated here because uv stops looking at the workspace root
+  .python-version           # 3.14; the only one in the repo
   ingestion/
     pyproject.toml          # package swx_ingest
     src/swx_ingest/
@@ -26,15 +26,18 @@ code/
 
 - Package names are `swx_ingest` and `swx_platform`. Never name an importable package `platform` or `code`: both
   shadow Python standard-library modules.
-- The repo-root `pyproject.toml` and `main.py` are Arek's stub from `uv init`; leave them alone. The workspace root is
-  `code/pyproject.toml`.
+- uv lives only here (Arek, 2026-11-14): the workspace root is `code/pyproject.toml`, and the repo root has no
+  `pyproject.toml`, `uv.lock` or `.venv`. Scripts elsewhere in the repo (`evaluation/event_set/`) are run from
+  `code/` with `uv run python ../<path>`.
+- `README.md` here is the overview for people (folders and commands); keep it in step with this file.
+- The event-set build scripts are not application code and stay next to their data in `evaluation/event_set/`.
 - The two packages share no code at first. If shared types become necessary, propose a third member (`swx_common`)
   instead of importing across parts.
 
 ## Tooling
 
-- **Python 3.14 only.** The repo-root `.python-version` says `3.14` and every `pyproject.toml` in the repo (root,
-  `code/`, each member) sets `requires-python = ">=3.14,<3.15"`, so uv refuses any other interpreter. Install it with
+- **Python 3.14 only.** `code/.python-version` says `3.14` and every `pyproject.toml` in the repo (`code/` and
+  each member) sets `requires-python = ">=3.14,<3.15"`, so uv refuses any other interpreter. Install it with
   `uv python install 3.14`. Don't run project code with a system Python or another version, and don't change the pin
   without Arek. Why 3.14 and not 3.15: see `docs/decisions.md` (2026-10-11).
 - Packages via `uv` (`uv sync`, `uv run pytest`, `uv add <pkg>`). Before adding a dependency, check it ships wheels
